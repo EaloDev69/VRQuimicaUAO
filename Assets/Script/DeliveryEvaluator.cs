@@ -17,7 +17,7 @@ public struct DeliveryResult
     public float timeUsed;
 }
 
-public enum RejectReason { Empty, NotClassified, NoMatchingOrder }
+public enum RejectReason { Empty, NotClassified, NoMatchingOrder, NoActiveOrder, WrongRecipe, Expired }
 
 /// Máquina Evaluadora (GDD 4.10).
 /// El jugador deja la muestra (botella o vaso lleno) en la zona de entrada; al soltarla, la máquina:
@@ -90,7 +90,17 @@ public class DeliveryEvaluator : MonoBehaviour
         if (!s.IsFilled) { Reject(s, RejectReason.Empty); return; }
         if (requireClassification && !s.classified) { Reject(s, RejectReason.NotClassified); return; }
 
-        var order = orders != null ? orders.FindActive(s.recipe) : null;
+        var cur = orders != null ? orders.Current : null;
+        if (cur == null) { Reject(s, RejectReason.NoActiveOrder); return; }
+        if (cur.state == OrderState.Lost) { Reject(s, RejectReason.Expired); return; }        // se acabó el tiempo: no recibe la muestra
+        if (cur.state != OrderState.Active) { Reject(s, RejectReason.NoActiveOrder); return; }
+        if (cur.recipe != s.recipe)                                                           // no es lo pedido: 0 puntos y el pedido se pierde
+        {
+            Reject(s, RejectReason.WrongRecipe);
+            orders.Fail(cur);
+            return;
+        }
+        var order = orders.FindActive(s.recipe);
         if (order == null) { Reject(s, RejectReason.NoMatchingOrder); return; }
 
         int basePts = s.recipe.basePoints;
