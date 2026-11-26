@@ -1,0 +1,960 @@
+[33mcommit 4d9e0c9cbe026739305db0b2f617df8925d97f7b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmiguel-dev[m[33m)[m
+Author: EaloDev69 <sansastico20@gmail.com>
+Date:   Thu Nov 26 11:45:26 2026 -0500
+
+    Merge rama camila
+
+ .idea/.idea.My project (20)/.idea/.gitignore       |    15 [31m-[m
+ .idea/.idea.My project (20)/.idea/indexLayout.xml  |     8 [31m-[m
+ .../.idea/projectSettingsUpdater.xml               |     8 [31m-[m
+ .idea/.idea.My project (20)/.idea/vcs.xml          |     7 [31m-[m
+ .idea/.idea.My project (20)/.idea/workspace.xml    |   152 [31m-[m
+ Assets/Abrir_Puerta.anim                           |   373 [31m-[m
+ Assets/Abrir_Puerta.anim.meta                      |     8 [31m-[m
+ Assets/Assets/BottlesANDCaps.fbx                   |   Bin [31m1216860[m -> [32m0[m bytes
+ Assets/Assets/BottlesANDCaps.fbx.meta              |   110 [31m-[m
+ Assets/Assets/Canasta.fbx                          |   Bin [31m183232[m -> [32m0[m bytes
+ Assets/Assets/Canasta.fbx.meta                     |   110 [31m-[m
+ Assets/Assets/Doors.fbx                            |   Bin [31m199020[m -> [32m0[m bytes
+ Assets/Assets/Doors.fbx.meta                       |   110 [31m-[m
+ Assets/Assets/GameRadyLab.fbx                      |   Bin [31m1079228[m -> [32m0[m bytes
+ Assets/Assets/GameRadyLab.fbx.meta                 |   110 [31m-[m
+ Assets/Assets/LabMachine_BaseColor.png             |   Bin [31m90260[m -> [32m0[m bytes
+ Assets/Assets/LabMachine_BaseColor.png.meta        |   130 [31m-[m
+ Assets/Assets/Materials.meta                       |     8 [31m-[m
+ Assets/Assets/Materials/LuzParticula.mat           |   159 [31m-[m
+ Assets/Assets/Materials/LuzParticula.mat.meta      |     8 [31m-[m
+ Assets/Assets/Materials/Ma1nColor.mat              |   137 [31m-[m
+ Assets/Assets/Materials/Ma1nColor.mat.meta         |     8 [31m-[m
+ Assets/Assets/Materials/New Material 1.mat         |   137 [31m-[m
+ Assets/Assets/Materials/New Material 1.mat.meta    |     8 [31m-[m
+ Assets/Assets/Materials/New Material 10.mat        |   137 [31m-[m
+ Assets/Assets/Materials/New Material 10.mat.meta   |     8 [31m-[m
+ Assets/Assets/Materials/New Material 11.mat        |   137 [31m-[m
+ Assets/Assets/Materials/New Material 11.mat.meta   |     8 [31m-[m
+ Assets/Assets/Materials/New Material 2.mat         |   137 [31m-[m
+ Assets/Assets/Materials/New Material 2.mat.meta    |     8 [31m-[m
+ Assets/Assets/Materials/New Material 3.mat         |   137 [31m-[m
+ Assets/Assets/Materials/New Material 3.mat.meta    |     8 [31m-[m
+ Assets/Assets/Materials/New Material 4.mat         |   137 [31m-[m
+ Assets/Assets/Materials/New Material 4.mat.meta    |     8 [31m-[m
+ Assets/Assets/Materials/New Material 5.mat         |   137 [31m-[m
+ Assets/Assets/Materials/New Material 5.mat.meta    |     8 [31m-[m
+ Assets/Assets/Materials/New Material 6.mat         |   137 [31m-[m
+ Assets/Assets/Materials/New Material 6.mat.meta    |     8 [31m-[m
+ Assets/Assets/Materials/New Material 7.mat         |   137 [31m-[m
+ Assets/Assets/Materials/New Material 7.mat.meta    |     8 [31m-[m
+ Assets/Assets/Materials/New Material 8.mat         |   141 [31m-[m
+ Assets/Assets/Materials/New Material 8.mat.meta    |     8 [31m-[m
+ Assets/Assets/Materials/New Material 9.mat         |   137 [31m-[m
+ Assets/Assets/Materials/New Material 9.mat.meta    |     8 [31m-[m
+ Assets/Assets/Materials/New Material.mat           |   137 [31m-[m
+ Assets/Assets/Materials/New Material.mat.meta      |     8 [31m-[m
+ Assets/Assets/Materials/Texture8x8.mat             |   137 [31m-[m
+ Assets/Assets/Materials/Texture8x8.mat.meta        |     8 [31m-[m
+ .../WhatsApp Image 2026-11-12 at 3.56.27 PM.mat    |   137 [31m-[m
+ ...hatsApp Image 2026-11-12 at 3.56.27 PM.mat.meta |     8 [31m-[m
+ Assets/Assets/Materials/vidrio.mat                 |   141 [31m-[m
+ Assets/Assets/Materials/vidrio.mat.meta            |     8 [31m-[m
+ Assets/Assets/New Material 1.mat                   |   137 [31m-[m
+ Assets/Assets/New Material 1.mat.meta              |     8 [31m-[m
+ Assets/Assets/New Material.mat                     |   137 [31m-[m
+ Assets/Assets/New Material.mat.meta                |     8 [31m-[m
+ Assets/Assets/Nuclear control room stuff.fbx       |   Bin [31m2150892[m -> [32m0[m bytes
+ Assets/Assets/Nuclear control room stuff.fbx.meta  |   110 [31m-[m
+ .../Tarjetas_Pedidos_MoleculaCafe_v3_azul.meta     |     8 [31m-[m
+ .../Pedido_01_HCl.png                              |   Bin [31m459701[m -> [32m0[m bytes
+ .../Pedido_01_HCl.png.meta                         |   130 [31m-[m
+ .../Pedido_02_H2O.png                              |   Bin [31m453023[m -> [32m0[m bytes
+ .../Pedido_02_H2O.png.meta                         |   130 [31m-[m
+ .../Pedido_03_NH3.png                              |   Bin [31m446637[m -> [32m0[m bytes
+ .../Pedido_03_NH3.png.meta                         |   130 [31m-[m
+ .../Pedido_04_CH4.png                              |   Bin [31m409670[m -> [32m0[m bytes
+ .../Pedido_04_CH4.png.meta                         |   130 [31m-[m
+ .../Pedido_05_O2.png                               |   Bin [31m454297[m -> [32m0[m bytes
+ .../Pedido_05_O2.png.meta                          |   130 [31m-[m
+ .../Pedido_06_CO2.png                              |   Bin [31m428922[m -> [32m0[m bytes
+ .../Pedido_06_CO2.png.meta                         |   130 [31m-[m
+ .../Pedido_07_N2.png                               |   Bin [31m440322[m -> [32m0[m bytes
+ .../Pedido_07_N2.png.meta                          |   130 [31m-[m
+ .../Pedido_08_SiH4.png                             |   Bin [31m482642[m -> [32m0[m bytes
+ .../Pedido_08_SiH4.png.meta                        |   130 [31m-[m
+ .../Pedido_09_C2H6O.png                            |   Bin [31m451709[m -> [32m0[m bytes
+ .../Pedido_09_C2H6O.png.meta                       |   130 [31m-[m
+ .../Pedido_10_C6H12O6.png                          |   Bin [31m512251[m -> [32m0[m bytes
+ .../Pedido_10_C6H12O6.png.meta                     |   130 [31m-[m
+ .../make_cards_v3.py                               |   219 [31m-[m
+ .../make_cards_v3.py.meta                          |     7 [31m-[m
+ Assets/Assets/Transmutador.meta                    |     8 [31m-[m
+ Assets/Assets/Transmutador/transmutador.prefab     |  4148 [31m----[m
+ .../Assets/Transmutador/transmutador.prefab.meta   |     7 [31m-[m
+ .../WhatsApp Image 2026-11-12 at 3.56.27 PM.jpeg   |   Bin [31m142316[m -> [32m0[m bytes
+ ...atsApp Image 2026-11-12 at 3.56.27 PM.jpeg.meta |   130 [31m-[m
+ Assets/Assets/bench-table-kit.meta                 |     8 [31m-[m
+ Assets/Assets/bench-table-kit/source.meta          |     8 [31m-[m
+ .../bench-table-kit/source/Bench Table kit.fbx     |   Bin [31m270268[m -> [32m0[m bytes
+ .../source/Bench Table kit.fbx.meta                |   110 [31m-[m
+ Assets/Assets/gabinete de oficina.fbx              |   Bin [31m28156[m -> [32m0[m bytes
+ Assets/Assets/gabinete de oficina.fbx.meta         |   110 [31m-[m
+ Assets/Assets/laboratorio-parte-1.meta             |     8 [31m-[m
+ Assets/Assets/laboratorio-parte-1/Materials.meta   |     8 [31m-[m
+ .../laboratorio-parte-1/Materials/T_bichito.mat    |   137 [31m-[m
+ .../Materials/T_bichito.mat.meta                   |     8 [31m-[m
+ .../Materials/T_cilindrocriogenicoexterior.mat     |   137 [31m-[m
+ .../T_cilindrocriogenicoexterior.mat.meta          |     8 [31m-[m
+ .../laboratorio-parte-1/Materials/T_pizarra.mat    |   137 [31m-[m
+ .../Materials/T_pizarra.mat.meta                   |     8 [31m-[m
+ .../Materials/T_vidrioclilindro.mat                |   137 [31m-[m
+ .../Materials/T_vidrioclilindro.mat.meta           |     8 [31m-[m
+ Assets/Assets/laboratorio-parte-1/source.meta      |     8 [31m-[m
+ .../laboratorio-parte-1/source/schetch1.meta       |     8 [31m-[m
+ .../Assets/laboratorio-parte-1/source/schetch1.rar |   Bin [31m3176669[m -> [32m0[m bytes
+ .../laboratorio-parte-1/source/schetch1.rar.meta   |     7 [31m-[m
+ .../source/schetch1/schetch1.meta                  |     8 [31m-[m
+ .../source/schetch1/schetch1/T_bichito.png         |   Bin [31m659659[m -> [32m0[m bytes
+ .../source/schetch1/schetch1/T_bichito.png.meta    |   130 [31m-[m
+ .../schetch1/T_cilindrocriogenicoexterior.png      |   Bin [31m2355306[m -> [32m0[m bytes
+ .../schetch1/T_cilindrocriogenicoexterior.png.meta |   130 [31m-[m
+ .../source/schetch1/schetch1/T_pizarra.png         |   Bin [31m39468[m -> [32m0[m bytes
+ .../source/schetch1/schetch1/T_pizarra.png.meta    |   130 [31m-[m
+ .../source/schetch1/schetch1/T_vidrioclilindro.png |   Bin [31m14303[m -> [32m0[m bytes
+ .../schetch1/schetch1/T_vidrioclilindro.png.meta   |   130 [31m-[m
+ .../source/schetch1/schetch1/escena 1.FBX          |   Bin [31m202288[m -> [32m0[m bytes
+ .../source/schetch1/schetch1/escena 1.FBX.meta     |   110 [31m-[m
+ Assets/Assets/laboratorio-parte-1/textures.meta    |     8 [31m-[m
+ .../laboratorio-parte-1/textures/T_bichito.png     |   Bin [31m652567[m -> [32m0[m bytes
+ .../textures/T_bichito.png.meta                    |   130 [31m-[m
+ .../textures/T_cilindrocriogenicoexterior.png      |   Bin [31m2351866[m -> [32m0[m bytes
+ .../textures/T_cilindrocriogenicoexterior.png.meta |   130 [31m-[m
+ .../laboratorio-parte-1/textures/T_pizarra.png     |   Bin [31m36181[m -> [32m0[m bytes
+ .../textures/T_pizarra.png.meta                    |   130 [31m-[m
+ .../textures/T_vidrioclilindro.png                 |   Bin [31m12545[m -> [32m0[m bytes
+ .../textures/T_vidrioclilindro.png.meta            |   130 [31m-[m
+ Assets/Assets/maquina de envio 1.fbx               |   Bin [31m43756[m -> [32m0[m bytes
+ Assets/Assets/maquina de envio 1.fbx.meta          |   110 [31m-[m
+ Assets/Assets/maquina de envio.fbx                 |   Bin [31m43756[m -> [32m0[m bytes
+ Assets/Assets/maquina de envio.fbx.meta            |   110 [31m-[m
+ Assets/Assets/pbr-sci-fi-barrel.meta               |     8 [31m-[m
+ Assets/Assets/pbr-sci-fi-barrel/source.meta        |     8 [31m-[m
+ .../source/Sci-Fi_BarrelFinished.fbx               |   Bin [31m453084[m -> [32m0[m bytes
+ .../source/Sci-Fi_BarrelFinished.fbx.meta          |   110 [31m-[m
+ Assets/Assets/pbr-sci-fi-barrel/textures.meta      |     8 [31m-[m
+ .../textures/Barrel_Barrel_Albedo.png              |   Bin [31m4665993[m -> [32m0[m bytes
+ .../textures/Barrel_Barrel_Albedo.png.meta         |   130 [31m-[m
+ .../textures/Barrel_Barrel_Metalness.png           |   Bin [31m4205436[m -> [32m0[m bytes
+ .../textures/Barrel_Barrel_Metalness.png.meta      |   130 [31m-[m
+ .../textures/Barrel_Barrel_Normal.png              |   Bin [31m3863986[m -> [32m0[m bytes
+ .../textures/Barrel_Barrel_Normal.png.meta         |   130 [31m-[m
+ .../textures/Barrel_Barrel_Roughness.png           |   Bin [31m4047823[m -> [32m0[m bytes
+ .../textures/Barrel_Barrel_Roughness.png.meta      |   130 [31m-[m
+ .../textures/Barrel_Metal_Albedo.png               |   Bin [31m4831510[m -> [32m0[m bytes
+ .../textures/Barrel_Metal_Albedo.png.meta          |   130 [31m-[m
+ .../textures/Barrel_Metal_Metalness.png            |   Bin [31m3452716[m -> [32m0[m bytes
+ .../textures/Barrel_Metal_Metalness.png.meta       |   130 [31m-[m
+ .../textures/Barrel_Metal_Normal.png               |   Bin [31m3843314[m -> [32m0[m bytes
+ .../textures/Barrel_Metal_Normal.png.meta          |   130 [31m-[m
+ .../textures/Barrel_Metal_Roughness.png            |   Bin [31m4180339[m -> [32m0[m bytes
+ .../textures/Barrel_Metal_Roughness.png.meta       |   130 [31m-[m
+ .../textures/Barrel_Stand_Albedo.png               |   Bin [31m755785[m -> [32m0[m bytes
+ .../textures/Barrel_Stand_Albedo.png.meta          |   130 [31m-[m
+ .../textures/Barrel_Stand_Metalness.png            |   Bin [31m55075[m -> [32m0[m bytes
+ .../textures/Barrel_Stand_Metalness.png.meta       |   130 [31m-[m
+ .../textures/Barrel_Stand_Normal.png               |   Bin [31m498274[m -> [32m0[m bytes
+ .../textures/Barrel_Stand_Normal.png.meta          |   130 [31m-[m
+ .../textures/Barrel_Stand_Roughness.png            |   Bin [31m537193[m -> [32m0[m bytes
+ .../textures/Barrel_Stand_Roughness.png.meta       |   130 [31m-[m
+ .../textures/internal_ground_ao_texture.jpeg       |   Bin [31m17306[m -> [32m0[m bytes
+ .../textures/internal_ground_ao_texture.jpeg.meta  |   130 [31m-[m
+ Assets/Assets/simple-low-poly-microscope.meta      |     8 [31m-[m
+ .../Assets/simple-low-poly-microscope/source.meta  |     8 [31m-[m
+ .../source/microscopi.fbx                          |   Bin [31m143708[m -> [32m0[m bytes
+ .../source/microscopi.fbx.meta                     |   110 [31m-[m
+ Assets/Assets/spawner.fbx                          |   Bin [31m88956[m -> [32m0[m bytes
+ Assets/Assets/spawner.fbx.meta                     |   110 [31m-[m
+ Assets/Assets/terminal-1 (1).meta                  |     8 [31m-[m
+ Assets/Assets/terminal-1 (1)/Materials.meta        |     8 [31m-[m
+ .../Materials/terminal_001_Base_Color.tga.mat      |   137 [31m-[m
+ .../Materials/terminal_001_Base_Color.tga.mat.meta |     8 [31m-[m
+ .../Materials/terminal_001_Emissive.tga.mat        |   137 [31m-[m
+ .../Materials/terminal_001_Emissive.tga.mat.meta   |     8 [31m-[m
+ Assets/Assets/terminal-1 (1)/source.meta           |     8 [31m-[m
+ .../Assets/terminal-1 (1)/source/Terminal_001.fbx  |   Bin [31m44800[m -> [32m0[m bytes
+ .../terminal-1 (1)/source/Terminal_001.fbx.meta    |   110 [31m-[m
+ Assets/Assets/terminal-1 (1)/textures.meta         |     8 [31m-[m
+ .../textures/terminal_001_AO.tga.png               |   Bin [31m623220[m -> [32m0[m bytes
+ .../textures/terminal_001_AO.tga.png.meta          |   130 [31m-[m
+ .../textures/terminal_001_Base_Color.tga.png       |   Bin [31m866097[m -> [32m0[m bytes
+ .../textures/terminal_001_Base_Color.tga.png.meta  |   130 [31m-[m
+ .../textures/terminal_001_Emissive.tga.png         |   Bin [31m126804[m -> [32m0[m bytes
+ .../textures/terminal_001_Emissive.tga.png.meta    |   130 [31m-[m
+ .../terminal_001_Metallic_and_roughness.tga.png    |   Bin [31m46331[m -> [32m0[m bytes
+ ...erminal_001_Metallic_and_roughness.tga.png.meta |   130 [31m-[m
+ .../textures/terminal_001_Normal.tga.png           |   Bin [31m1089381[m -> [32m0[m bytes
+ .../textures/terminal_001_Normal.tga.png.meta      |   130 [31m-[m
+ Assets/Assets/textures.meta                        |     8 [31m-[m
+ Assets/Assets/textures/Ma1nColor.jpeg              |   Bin [31m855102[m -> [32m0[m bytes
+ Assets/Assets/textures/Ma1nColor.jpeg.meta         |   130 [31m-[m
+ Assets/Assets/textures/Texture8x8.png              |   Bin [31m268[m -> [32m0[m bytes
+ Assets/Assets/textures/Texture8x8.png.meta         |   130 [31m-[m
+ Assets/Assets/transmutador.fbx                     |   Bin [31m153516[m -> [32m0[m bytes
+ Assets/Assets/transmutador.fbx.meta                |   110 [31m-[m
+ Assets/Cerrar_Puerta.anim                          |   337 [31m-[m
+ Assets/Cerrar_Puerta.anim.meta                     |     8 [31m-[m
+ Assets/Data.meta                                   |     8 [31m-[m
+ Assets/Data/Br.asset                               |    18 [31m-[m
+ Assets/Data/Br.asset.meta                          |     8 [31m-[m
+ Assets/Data/C.asset                                |    18 [31m-[m
+ Assets/Data/C.asset.meta                           |     8 [31m-[m
+ Assets/Data/Cl.asset                               |    18 [31m-[m
+ Assets/Data/Cl.asset.meta                          |     8 [31m-[m
+ Assets/Data/F.asset                                |    18 [31m-[m
+ Assets/Data/F.asset.meta                           |     8 [31m-[m
+ Assets/Data/H.asset                                |    18 [31m-[m
+ Assets/Data/H.asset.meta                           |     8 [31m-[m
+ Assets/Data/N.asset                                |    18 [31m-[m
+ Assets/Data/N.asset.meta                           |     8 [31m-[m
+ Assets/Data/O.asset                                |    18 [31m-[m
+ Assets/Data/O.asset.meta                           |     8 [31m-[m
+ Assets/Data/P.asset                                |    18 [31m-[m
+ Assets/Data/P.asset.meta                           |     8 [31m-[m
+ Assets/Data/S.asset                                |    18 [31m-[m
+ Assets/Data/S.asset.meta                           |     8 [31m-[m
+ Assets/Data/Si.asset                               |    18 [31m-[m
+ Assets/Data/Si.asset.meta                          |     8 [31m-[m
+ Assets/Door_005 (2).controller                     |   214 [31m-[m
+ Assets/Door_005 (2).controller.meta                |     8 [31m-[m
+ Assets/Materials.meta                              |     8 [31m-[m
+ Assets/Materials/BarSpawner.mat                    |   137 [31m-[m
+ Assets/Materials/BarSpawner.mat.meta               |     8 [31m-[m
+ Assets/Materials/BasketNoBouncing.physicMaterial   |    15 [31m-[m
+ .../Materials/BasketNoBouncing.physicMaterial.meta |     8 [31m-[m
+ Assets/Materials/New Material 1.mat                |   137 [31m-[m
+ Assets/Materials/New Material 1.mat.meta           |     8 [31m-[m
+ Assets/Materials/New Material.mat                  |   137 [31m-[m
+ Assets/Materials/New Material.mat.meta             |     8 [31m-[m
+ Assets/Oculus Hands.meta                           |     8 [31m-[m
+ Assets/Oculus Hands/Oculus Hands.meta              |     8 [31m-[m
+ Assets/Oculus Hands/Oculus Hands/Animations.meta   |     8 [31m-[m
+ .../Animations/Left Hand Animator.controller       |   131 [31m-[m
+ .../Animations/Left Hand Animator.controller.meta  |     8 [31m-[m
+ .../Animations/Right Hand Animator.controller      |   131 [31m-[m
+ .../Animations/Right Hand Animator.controller.meta |     8 [31m-[m
+ .../Animations/l_hand_default_anim.fbx             |   Bin [31m119552[m -> [32m0[m bytes
+ .../Animations/l_hand_default_anim.fbx.meta        |   139 [31m-[m
+ .../Oculus Hands/Animations/l_hand_fist_anim.fbx   |   Bin [31m197312[m -> [32m0[m bytes
+ .../Animations/l_hand_fist_anim.fbx.meta           |   204 [31m-[m
+ .../Oculus Hands/Animations/l_hand_pinch_anim.fbx  |   Bin [31m128672[m -> [32m0[m bytes
+ .../Animations/l_hand_pinch_anim.fbx.meta          |   209 [31m-[m
+ .../Animations/r_hand_default_anim.fbx             |   Bin [31m116832[m -> [32m0[m bytes
+ .../Animations/r_hand_default_anim.fbx.meta        |   139 [31m-[m
+ .../Oculus Hands/Animations/r_hand_fist_anim.fbx   |   Bin [31m156352[m -> [32m0[m bytes
+ .../Animations/r_hand_fist_anim.fbx.meta           |   204 [31m-[m
+ .../Oculus Hands/Animations/r_hand_pinch_anim.fbx  |   Bin [31m128368[m -> [32m0[m bytes
+ .../Animations/r_hand_pinch_anim.fbx.meta          |   209 [31m-[m
+ Assets/Oculus Hands/Oculus Hands/Materials.meta    |     8 [31m-[m
+ .../Oculus Hands/Materials/Blue Simple Lit.mat     |   163 [31m-[m
+ .../Materials/Blue Simple Lit.mat.meta             |     8 [31m-[m
+ Assets/Oculus Hands/Oculus Hands/Models.meta       |     8 [31m-[m
+ .../Oculus Hands/Models/l_hand_skeletal_lowres.fbx |   Bin [31m258784[m -> [32m0[m bytes
+ .../Models/l_hand_skeletal_lowres.fbx.meta         |   153 [31m-[m
+ .../Oculus Hands/Models/r_hand_skeletal_lowres.fbx |   Bin [31m262336[m -> [32m0[m bytes
+ .../Models/r_hand_skeletal_lowres.fbx.meta         |   153 [31m-[m
+ Assets/Oculus Hands/Oculus Hands/Prefabs.meta      |     8 [31m-[m
+ .../Oculus Hands/Prefabs/Left Hand Model.prefab    |  1037 [31m-[m
+ .../Prefabs/Left Hand Model.prefab.meta            |     7 [31m-[m
+ .../Oculus Hands/Prefabs/Right Hand Model.prefab   |  1037 [31m-[m
+ .../Prefabs/Right Hand Model.prefab.meta           |     7 [31m-[m
+ Assets/Oculus Hands/Oculus Hands/Scripts.meta      |     8 [31m-[m
+ .../Oculus Hands/Scripts/AnimateHandOnInput.cs     |    22 [31m-[m
+ .../Scripts/AnimateHandOnInput.cs.meta             |    11 [31m-[m
+ Assets/Prefabs.meta                                |     8 [31m-[m
+ Assets/Prefabs/AtomBase.prefab                     |   348 [31m-[m
+ Assets/Prefabs/AtomBase.prefab.meta                |     7 [31m-[m
+ Assets/Prefabs/AtomH.prefab                        |    71 [31m-[m
+ Assets/Prefabs/AtomH.prefab.meta                   |     7 [31m-[m
+ Assets/Prefabs/AtomO.prefab                        |    67 [31m-[m
+ Assets/Prefabs/AtomO.prefab.meta                   |     7 [31m-[m
+ Assets/Prefabs/BarSpawner.prefab                   |   802 [31m-[m
+ Assets/Prefabs/BarSpawner.prefab.meta              |     7 [31m-[m
+ Assets/Prefabs/BondBar.prefab                      |   460 [31m-[m
+ Assets/Prefabs/BondBar.prefab.meta                 |     7 [31m-[m
+ Assets/Prefabs/XR Interaction Manager.prefab       |    48 [31m-[m
+ Assets/Prefabs/XR Interaction Manager.prefab.meta  |     7 [31m-[m
+ Assets/Prefabs/XR Origin (XR Rig).prefab           |  3997 [31m----[m
+ Assets/Prefabs/XR Origin (XR Rig).prefab.meta      |     7 [31m-[m
+ Assets/Samples.meta                                |     8 [31m-[m
+ Assets/Samples/XR Interaction Toolkit.meta         |     8 [31m-[m
+ Assets/Samples/XR Interaction Toolkit/3.3.2.meta   |     8 [31m-[m
+ .../3.3.2/Starter Assets.meta                      |     8 [31m-[m
+ .../3.3.2/Starter Assets/AffordanceThemes.meta     |     8 [31m-[m
+ .../ControllerPokeSphereScale.asset                |    66 [31m-[m
+ .../ControllerPokeSphereScale.asset.meta           |     8 [31m-[m
+ .../HighlightInteractionColor.asset                |    74 [31m-[m
+ .../HighlightInteractionColor.asset.meta           |     8 [31m-[m
+ .../HighlightStrengthInteraction.asset             |    66 [31m-[m
+ .../HighlightStrengthInteraction.asset.meta        |     8 [31m-[m
+ .../AffordanceThemes/PokeSphereColor.asset         |    74 [31m-[m
+ .../AffordanceThemes/PokeSphereColor.asset.meta    |     8 [31m-[m
+ .../AffordanceThemes/PokeSphereInteraction.asset   |    66 [31m-[m
+ .../PokeSphereInteraction.asset.meta               |     8 [31m-[m
+ .../3.3.2/Starter Assets/Animations.meta           |     8 [31m-[m
+ .../Starter Assets/Animations/ArrowBounce.anim     |   205 [31m-[m
+ .../Animations/ArrowBounce.anim.meta               |     8 [31m-[m
+ .../Animations/Climb Teleport Arrow.controller     |    72 [31m-[m
+ .../Climb Teleport Arrow.controller.meta           |     8 [31m-[m
+ .../3.3.2/Starter Assets/DemoScene.unity           |  7058 [31m------[m
+ .../3.3.2/Starter Assets/DemoScene.unity.meta      |     7 [31m-[m
+ .../3.3.2/Starter Assets/DemoSceneAssets.meta      |     8 [31m-[m
+ .../DemoSceneAssets/AffordanceThemes.meta          |     8 [31m-[m
+ .../AffordanceThemes/InteractionColor.asset        |    74 [31m-[m
+ .../AffordanceThemes/InteractionColor.asset.meta   |     8 [31m-[m
+ .../Starter Assets/DemoSceneAssets/Audio.meta      |     8 [31m-[m
+ .../DemoSceneAssets/Audio/Button Pop.wav           |   Bin [31m51580[m -> [32m0[m bytes
+ .../DemoSceneAssets/Audio/Button Pop.wav.meta      |    22 [31m-[m
+ .../Starter Assets/DemoSceneAssets/Materials.meta  |     8 [31m-[m
+ .../Materials/Concrete Dark Blue.mat               |   173 [31m-[m
+ .../Materials/Concrete Dark Blue.mat.meta          |     8 [31m-[m
+ .../DemoSceneAssets/Materials/Concrete Grey.mat    |   177 [31m-[m
+ .../Materials/Concrete Grey.mat.meta               |     8 [31m-[m
+ .../Materials/Concrete Light Blue.mat              |   173 [31m-[m
+ .../Materials/Concrete Light Blue.mat.meta         |     8 [31m-[m
+ .../DemoSceneAssets/Materials/Lit White.mat        |   172 [31m-[m
+ .../DemoSceneAssets/Materials/Lit White.mat.meta   |     8 [31m-[m
+ .../Materials/MaterialPipelineHandler.asset        |    44 [31m-[m
+ .../Materials/MaterialPipelineHandler.asset.meta   |     8 [31m-[m
+ .../Starter Assets/DemoSceneAssets/Models.meta     |     8 [31m-[m
+ .../DemoSceneAssets/Models/Primitive_Blaster.fbx   |   Bin [31m102160[m -> [32m0[m bytes
+ .../Models/Primitive_Blaster.fbx.meta              |   111 [31m-[m
+ .../Models/Primitive_Blaster_Long.fbx              |   Bin [31m108668[m -> [32m0[m bytes
+ .../Models/Primitive_Blaster_Long.fbx.meta         |   111 [31m-[m
+ .../DemoSceneAssets/Models/Primitive_Cylinder.fbx  |   Bin [31m23232[m -> [32m0[m bytes
+ .../Models/Primitive_Cylinder.fbx.meta             |   111 [31m-[m
+ .../DemoSceneAssets/Models/Primitive_Pyramid.fbx   |   Bin [31m21632[m -> [32m0[m bytes
+ .../Models/Primitive_Pyramid.fbx.meta              |   111 [31m-[m
+ .../Models/Primitive_Tapered_Cylinder.fbx          |   Bin [31m26380[m -> [32m0[m bytes
+ .../Models/Primitive_Tapered_Cylinder.fbx.meta     |   111 [31m-[m
+ .../DemoSceneAssets/Models/Primitive_Torus.fbx     |   Bin [31m33056[m -> [32m0[m bytes
+ .../Models/Primitive_Torus.fbx.meta                |   111 [31m-[m
+ .../DemoSceneAssets/Models/Primitive_Torus_Cut.fbx |   Bin [31m27856[m -> [32m0[m bytes
+ .../Models/Primitive_Torus_Cut.fbx.meta            |   111 [31m-[m
+ .../DemoSceneAssets/Models/PushButton.fbx          |   Bin [31m47120[m -> [32m0[m bytes
+ .../DemoSceneAssets/Models/PushButton.fbx.meta     |   106 [31m-[m
+ .../Starter Assets/DemoSceneAssets/Prefabs.meta    |     8 [31m-[m
+ .../DemoSceneAssets/Prefabs/Climb.meta             |     8 [31m-[m
+ .../Prefabs/Climb/Climb Sample.prefab              |   226 [31m-[m
+ .../Prefabs/Climb/Climb Sample.prefab.meta         |     7 [31m-[m
+ .../Prefabs/Climb/ClimbTeleportReticle.prefab      |   647 [31m-[m
+ .../Prefabs/Climb/ClimbTeleportReticle.prefab.meta |     7 [31m-[m
+ .../Prefabs/Climb/Climbing Wall.prefab             |  8223 [31m-------[m
+ .../Prefabs/Climb/Climbing Wall.prefab.meta        |     7 [31m-[m
+ .../DemoSceneAssets/Prefabs/Climb/Ladder.prefab    |  3341 [31m---[m
+ .../Prefabs/Climb/Ladder.prefab.meta               |     7 [31m-[m
+ .../Prefabs/Climb/Multi Floor Ladder.prefab        |   932 [31m-[m
+ .../Prefabs/Climb/Multi Floor Ladder.prefab.meta   |     7 [31m-[m
+ .../Prefabs/Climb/Single Floor Ladder.prefab       |   388 [31m-[m
+ .../Prefabs/Climb/Single Floor Ladder.prefab.meta  |     7 [31m-[m
+ .../Prefabs/Far Grab Samples.prefab                |   222 [31m-[m
+ .../Prefabs/Far Grab Samples.prefab.meta           |     7 [31m-[m
+ .../Prefabs/Gaze Interactables.prefab              |  1094 [31m-[m
+ .../Prefabs/Gaze Interactables.prefab.meta         |     7 [31m-[m
+ .../Prefabs/GazeActivationZone.prefab              |    64 [31m-[m
+ .../Prefabs/GazeActivationZone.prefab.meta         |     7 [31m-[m
+ .../Prefabs/Interactables Sample.prefab            |   222 [31m-[m
+ .../Prefabs/Interactables Sample.prefab.meta       |     7 [31m-[m
+ .../DemoSceneAssets/Prefabs/Interactables.meta     |     8 [31m-[m
+ .../Prefabs/Interactables/Blaser-Long.prefab       |   570 [31m-[m
+ .../Prefabs/Interactables/Blaser-Long.prefab.meta  |     7 [31m-[m
+ .../Prefabs/Interactables/Blaser.prefab            |   530 [31m-[m
+ .../Prefabs/Interactables/Blaser.prefab.meta       |     7 [31m-[m
+ .../Prefabs/Interactables/Confetti.prefab          |  4872 [31m----[m
+ .../Prefabs/Interactables/Confetti.prefab.meta     |     7 [31m-[m
+ .../Prefabs/Interactables/Cube.prefab              |   307 [31m-[m
+ .../Prefabs/Interactables/Cube.prefab.meta         |     7 [31m-[m
+ .../Prefabs/Interactables/Cylinder.prefab          |   406 [31m-[m
+ .../Prefabs/Interactables/Cylinder.prefab.meta     |     7 [31m-[m
+ .../Prefabs/Interactables/Pot.prefab               |   380 [31m-[m
+ .../Prefabs/Interactables/Pot.prefab.meta          |     7 [31m-[m
+ .../Prefabs/Interactables/Push Button.prefab       |   500 [31m-[m
+ .../Prefabs/Interactables/Push Button.prefab.meta  |     7 [31m-[m
+ .../Prefabs/Interactables/Torus-Cut.prefab         |   389 [31m-[m
+ .../Prefabs/Interactables/Torus-Cut.prefab.meta    |     7 [31m-[m
+ .../Prefabs/Interactables/Torus.prefab             |   404 [31m-[m
+ .../Prefabs/Interactables/Torus.prefab.meta        |     7 [31m-[m
+ .../Prefabs/InteractionAffordance.prefab           |   205 [31m-[m
+ .../Prefabs/InteractionAffordance.prefab.meta      |     7 [31m-[m
+ .../Prefabs/Poke Interactions Sample.prefab        |  5557 [31m-----[m
+ .../Prefabs/Poke Interactions Sample.prefab.meta   |     7 [31m-[m
+ .../DemoSceneAssets/Prefabs/Teleport.meta          |     8 [31m-[m
+ .../Prefabs/Teleport/Snap Teleport Anchor.prefab   |   212 [31m-[m
+ .../Teleport/Snap Teleport Anchor.prefab.meta      |     7 [31m-[m
+ .../Prefabs/Teleport/Teleport Anchor.prefab        |   247 [31m-[m
+ .../Prefabs/Teleport/Teleport Anchor.prefab.meta   |     7 [31m-[m
+ .../Prefabs/Teleport/Teleport Area.prefab          |   214 [31m-[m
+ .../Prefabs/Teleport/Teleport Area.prefab.meta     |     7 [31m-[m
+ .../Prefabs/Teleportation Environment.prefab       |   446 [31m-[m
+ .../Prefabs/Teleportation Environment.prefab.meta  |     7 [31m-[m
+ .../DemoSceneAssets/Prefabs/UI Sample.prefab       |   772 [31m-[m
+ .../DemoSceneAssets/Prefabs/UI Sample.prefab.meta  |     7 [31m-[m
+ .../Starter Assets/DemoSceneAssets/Prefabs/UI.meta |     8 [31m-[m
+ .../DemoSceneAssets/Prefabs/UI/Dropdown.prefab     |  1171 [31m-[m
+ .../Prefabs/UI/Dropdown.prefab.meta                |     7 [31m-[m
+ .../DemoSceneAssets/Prefabs/UI/Icon Button.prefab  |   387 [31m-[m
+ .../Prefabs/UI/Icon Button.prefab.meta             |     7 [31m-[m
+ .../DemoSceneAssets/Prefabs/UI/Icon Toggle.prefab  |   353 [31m-[m
+ .../Prefabs/UI/Icon Toggle.prefab.meta             |     7 [31m-[m
+ .../Prefabs/UI/Interactive Controls.prefab         |  1367 [31m--[m
+ .../Prefabs/UI/Interactive Controls.prefab.meta    |     7 [31m-[m
+ .../DemoSceneAssets/Prefabs/UI/MinMaxSlider.prefab |   449 [31m-[m
+ .../Prefabs/UI/MinMaxSlider.prefab.meta            |     7 [31m-[m
+ .../Prefabs/UI/ModalSingleButton.prefab            |   443 [31m-[m
+ .../Prefabs/UI/ModalSingleButton.prefab.meta       |     7 [31m-[m
+ .../Prefabs/UI/Scroll UI Sample.prefab             |  1419 [31m--[m
+ .../Prefabs/UI/Scroll UI Sample.prefab.meta        |     7 [31m-[m
+ .../DemoSceneAssets/Prefabs/UI/Text Toggle.prefab  |   434 [31m-[m
+ .../Prefabs/UI/Text Toggle.prefab.meta             |     7 [31m-[m
+ .../DemoSceneAssets/Prefabs/UI/TextButton.prefab   |   412 [31m-[m
+ .../Prefabs/UI/TextButton.prefab.meta              |     7 [31m-[m
+ .../Starter Assets/DemoSceneAssets/Scripts.meta    |     8 [31m-[m
+ .../DemoSceneAssets/Scripts/IncrementUIText.cs     |    45 [31m-[m
+ .../Scripts/IncrementUIText.cs.meta                |    11 [31m-[m
+ .../Scripts/MultiAnchorTeleportReticle.cs          |   164 [31m-[m
+ .../Scripts/MultiAnchorTeleportReticle.cs.meta     |    11 [31m-[m
+ .../Starter Assets/DemoSceneAssets/Settings.meta   |     8 [31m-[m
+ .../Settings/GazeTeleportAnchorFilter.asset        |    82 [31m-[m
+ .../Settings/GazeTeleportAnchorFilter.asset.meta   |     8 [31m-[m
+ .../Settings/TeleportDestinationSettings.asset     |    22 [31m-[m
+ .../TeleportDestinationSettings.asset.meta         |     8 [31m-[m
+ .../Starter Assets/DemoSceneAssets/Sprites.meta    |     8 [31m-[m
+ .../DemoSceneAssets/Sprites/Asset.png              |   Bin [31m1419[m -> [32m0[m bytes
+ .../DemoSceneAssets/Sprites/Asset.png.meta         |   135 [31m-[m
+ .../DemoSceneAssets/Sprites/Checkmark.png          |   Bin [31m690[m -> [32m0[m bytes
+ .../DemoSceneAssets/Sprites/Checkmark.png.meta     |   135 [31m-[m
+ .../Sprites/Circle_60x60 Outline 4.png             |   Bin [31m4796[m -> [32m0[m bytes
+ .../Sprites/Circle_60x60 Outline 4.png.meta        |   135 [31m-[m
+ .../Sprites/Circle_60x60_Horizontal.png            |   Bin [31m3286[m -> [32m0[m bytes
+ .../Sprites/Circle_60x60_Horizontal.png.meta       |   135 [31m-[m
+ .../DemoSceneAssets/Sprites/Forward.png            |   Bin [31m589[m -> [32m0[m bytes
+ .../DemoSceneAssets/Sprites/Forward.png.meta       |   135 [31m-[m
+ .../DemoSceneAssets/Sprites/LegibilityMask.png     |   Bin [31m532145[m -> [32m0[m bytes
+ .../Sprites/LegibilityMask.png.meta                |   135 [31m-[m
+ .../Sprites/Round Radius 4 Outline.png             |   Bin [31m908[m -> [32m0[m bytes
+ .../Sprites/Round Radius 4 Outline.png.meta        |   147 [31m-[m
+ .../DemoSceneAssets/Sprites/Round Radius 4.png     |   Bin [31m829[m -> [32m0[m bytes
+ .../Sprites/Round Radius 4.png.meta                |   147 [31m-[m
+ .../Starter Assets/DemoSceneAssets/Textures.meta   |     8 [31m-[m
+ .../DemoSceneAssets/Textures/Concrete_Albedo.tif   |   Bin [31m2220452[m -> [32m0[m bytes
+ .../Textures/Concrete_Albedo.tif.meta              |   135 [31m-[m
+ .../DemoSceneAssets/Textures/Concrete_Metallic.tif |   Bin [31m651864[m -> [32m0[m bytes
+ .../Textures/Concrete_Metallic.tif.meta            |   135 [31m-[m
+ .../DemoSceneAssets/Textures/Concrete_Normal.tif   |   Bin [31m1707440[m -> [32m0[m bytes
+ .../Textures/Concrete_Normal.tif.meta              |   135 [31m-[m
+ .../3.3.2/Starter Assets/Editor.meta               |     8 [31m-[m
+ .../3.3.2/Starter Assets/Editor/Scripts.meta       |     8 [31m-[m
+ .../StarterAssetsSampleProjectValidation.cs        |   195 [31m-[m
+ .../StarterAssetsSampleProjectValidation.cs.meta   |    11 [31m-[m
+ .../Editor/StarterAssets.Editor.asmdef             |    28 [31m-[m
+ .../Editor/StarterAssets.Editor.asmdef.meta        |     7 [31m-[m
+ .../3.3.2/Starter Assets/Filters.meta              |     8 [31m-[m
+ .../Filters/AnyGazedAtTeleportAnchorFilter.asset   |    82 [31m-[m
+ .../AnyGazedAtTeleportAnchorFilter.asset.meta      |     8 [31m-[m
+ .../3.3.2/Starter Assets/Materials.meta            |     8 [31m-[m
+ .../Starter Assets/Materials/Controller_Grey.mat   |   189 [31m-[m
+ .../Materials/Controller_Grey.mat.meta             |     8 [31m-[m
+ .../Starter Assets/Materials/Controller_White.mat  |   175 [31m-[m
+ .../Materials/Controller_White.mat.meta            |     8 [31m-[m
+ .../3.3.2/Starter Assets/Materials/Flat Blue.mat   |    80 [31m-[m
+ .../Starter Assets/Materials/Flat Blue.mat.meta    |     8 [31m-[m
+ .../Starter Assets/Materials/FresnelHighlight.mat  |   179 [31m-[m
+ .../Materials/FresnelHighlight.mat.meta            |     8 [31m-[m
+ .../Starter Assets/Materials/Interactable.mat      |   186 [31m-[m
+ .../Starter Assets/Materials/Interactable.mat.meta |     8 [31m-[m
+ .../Materials/MaterialPipelineHandler.asset        |    58 [31m-[m
+ .../Materials/MaterialPipelineHandler.asset.meta   |     8 [31m-[m
+ .../Starter Assets/Materials/Telport Anchor.mat    |   175 [31m-[m
+ .../Materials/Telport Anchor.mat.meta              |     8 [31m-[m
+ .../Starter Assets/Materials/Telport Area.mat      |   175 [31m-[m
+ .../Starter Assets/Materials/Telport Area.mat.meta |     8 [31m-[m
+ .../3.3.2/Starter Assets/Materials/UI-NoZTest.mat  |    87 [31m-[m
+ .../Starter Assets/Materials/UI-NoZTest.mat.meta   |     8 [31m-[m
+ .../3.3.2/Starter Assets/Models.meta               |     8 [31m-[m
+ .../3.3.2/Starter Assets/Models/BlinkVisual.fbx    |   Bin [31m34416[m -> [32m0[m bytes
+ .../Starter Assets/Models/BlinkVisual.fbx.meta     |   111 [31m-[m
+ .../Starter Assets/Models/Pinch_Pointer_LOD0.fbx   |   Bin [31m36156[m -> [32m0[m bytes
+ .../Models/Pinch_Pointer_LOD0.fbx.meta             |   106 [31m-[m
+ .../Starter Assets/Models/Primitive_Cylinder.fbx   |   Bin [31m24656[m -> [32m0[m bytes
+ .../Models/Primitive_Cylinder.fbx.meta             |   111 [31m-[m
+ .../Starter Assets/Models/Primitive_Wedge.fbx      |   Bin [31m21728[m -> [32m0[m bytes
+ .../Starter Assets/Models/Primitive_Wedge.fbx.meta |   111 [31m-[m
+ .../3.3.2/Starter Assets/Models/Reticle_Torus.fbx  |   Bin [31m33056[m -> [32m0[m bytes
+ .../Starter Assets/Models/Reticle_Torus.fbx.meta   |   111 [31m-[m
+ .../Starter Assets/Models/UniversalController.fbx  |   Bin [31m317024[m -> [32m0[m bytes
+ .../Models/UniversalController.fbx.meta            |   116 [31m-[m
+ .../3.3.2/Starter Assets/Prefabs.meta              |     8 [31m-[m
+ .../3.3.2/Starter Assets/Prefabs/Affordances.meta  |     8 [31m-[m
+ .../HighlightInteractionAffordance.prefab          |   278 [31m-[m
+ .../HighlightInteractionAffordance.prefab.meta     |     7 [31m-[m
+ .../Affordances/PokePointerAffordance.prefab       |   379 [31m-[m
+ .../Affordances/PokePointerAffordance.prefab.meta  |     7 [31m-[m
+ .../3.3.2/Starter Assets/Prefabs/Controllers.meta  |     8 [31m-[m
+ .../Prefabs/Controllers/XR Controller Left.prefab  |   914 [31m-[m
+ .../Controllers/XR Controller Left.prefab.meta     |     7 [31m-[m
+ .../Prefabs/Controllers/XR Controller Right.prefab |   914 [31m-[m
+ .../Controllers/XR Controller Right.prefab.meta    |     7 [31m-[m
+ .../3.3.2/Starter Assets/Prefabs/Interactors.meta  |     8 [31m-[m
+ .../Prefabs/Interactors/Direct Interactor.prefab   |   229 [31m-[m
+ .../Interactors/Direct Interactor.prefab.meta      |     7 [31m-[m
+ .../Prefabs/Interactors/Gaze Interactor.prefab     |   442 [31m-[m
+ .../Interactors/Gaze Interactor.prefab.meta        |     7 [31m-[m
+ .../Interactors/Left_NearFarInteractor.prefab      |   746 [31m-[m
+ .../Interactors/Left_NearFarInteractor.prefab.meta |     7 [31m-[m
+ .../Prefabs/Interactors/Poke Interactor.prefab     |   265 [31m-[m
+ .../Interactors/Poke Interactor.prefab.meta        |     7 [31m-[m
+ .../Prefabs/Interactors/Ray Interactor.prefab      |   662 [31m-[m
+ .../Prefabs/Interactors/Ray Interactor.prefab.meta |     7 [31m-[m
+ .../Interactors/Right_NearFarInteractor.prefab     |    95 [31m-[m
+ .../Right_NearFarInteractor.prefab.meta            |     7 [31m-[m
+ .../Prefabs/Interactors/Teleport Interactor.prefab |   662 [31m-[m
+ .../Interactors/Teleport Interactor.prefab.meta    |     7 [31m-[m
+ .../Prefabs/Permissions Manager.prefab             |    61 [31m-[m
+ .../Prefabs/Permissions Manager.prefab.meta        |     7 [31m-[m
+ .../3.3.2/Starter Assets/Prefabs/Teleport.meta     |     8 [31m-[m
+ .../Teleport/Blocking Teleport Reticle.prefab      |   285 [31m-[m
+ .../Teleport/Blocking Teleport Reticle.prefab.meta |     7 [31m-[m
+ .../Prefabs/Teleport/Climb Teleport Arrow.prefab   |   342 [31m-[m
+ .../Teleport/Climb Teleport Arrow.prefab.meta      |     7 [31m-[m
+ .../Teleport/Directional Teleport Reticle.prefab   |   184 [31m-[m
+ .../Directional Teleport Reticle.prefab.meta       |     7 [31m-[m
+ .../Prefabs/XR Origin (XR Rig).prefab              |  2838 [31m---[m
+ .../Prefabs/XR Origin (XR Rig).prefab.meta         |     7 [31m-[m
+ .../3.3.2/Starter Assets/Presets.meta              |     8 [31m-[m
+ .../Presets/XRI Default Continuous Move.preset     |   159 [31m-[m
+ .../XRI Default Continuous Move.preset.meta        |     8 [31m-[m
+ .../Presets/XRI Default Continuous Turn.preset     |   143 [31m-[m
+ .../XRI Default Continuous Turn.preset.meta        |     8 [31m-[m
+ .../Presets/XRI Default Dynamic Move.preset        |   179 [31m-[m
+ .../Presets/XRI Default Dynamic Move.preset.meta   |     8 [31m-[m
+ ...fault Left Controller InputActionManager.preset |    83 [31m-[m
+ ... Left Controller InputActionManager.preset.meta |     8 [31m-[m
+ .../Presets/XRI Default Left Grab Move.preset      |   211 [31m-[m
+ .../Presets/XRI Default Left Grab Move.preset.meta |     8 [31m-[m
+ ...ault Right Controller InputActionManager.preset |    83 [31m-[m
+ ...Right Controller InputActionManager.preset.meta |     8 [31m-[m
+ .../Presets/XRI Default Right Grab Move.preset     |   211 [31m-[m
+ .../XRI Default Right Grab Move.preset.meta        |     8 [31m-[m
+ .../Presets/XRI Default Snap Turn.preset           |   159 [31m-[m
+ .../Presets/XRI Default Snap Turn.preset.meta      |     8 [31m-[m
+ .../Presets/XRI Default XR UI Input Module.preset  |   131 [31m-[m
+ .../XRI Default XR UI Input Module.preset.meta     |     8 [31m-[m
+ .../3.3.2/Starter Assets/Scripts.meta              |     8 [31m-[m
+ .../Scripts/ClimbTeleportDestinationIndicator.cs   |   143 [31m-[m
+ .../ClimbTeleportDestinationIndicator.cs.meta      |    11 [31m-[m
+ .../Starter Assets/Scripts/ControllerAnimator.cs   |    84 [31m-[m
+ .../Scripts/ControllerAnimator.cs.meta             |    11 [31m-[m
+ .../Scripts/ControllerInputActionManager.cs        |   530 [31m-[m
+ .../Scripts/ControllerInputActionManager.cs.meta   |    11 [31m-[m
+ .../3.3.2/Starter Assets/Scripts/DestroySelf.cs    |    29 [31m-[m
+ .../Starter Assets/Scripts/DestroySelf.cs.meta     |    11 [31m-[m
+ .../Starter Assets/Scripts/DynamicMoveProvider.cs  |   190 [31m-[m
+ .../Scripts/DynamicMoveProvider.cs.meta            |    11 [31m-[m
+ .../Starter Assets/Scripts/GazeInputManager.cs     |    95 [31m-[m
+ .../Scripts/GazeInputManager.cs.meta               |    11 [31m-[m
+ .../Scripts/MaterialPipelineHandler.cs             |   242 [31m-[m
+ .../Scripts/MaterialPipelineHandler.cs.meta        |    11 [31m-[m
+ .../3.3.2/Starter Assets/Scripts/ObjectSpawner.cs  |   271 [31m-[m
+ .../Starter Assets/Scripts/ObjectSpawner.cs.meta   |    11 [31m-[m
+ .../Starter Assets/Scripts/PermissionsManager.cs   |   162 [31m-[m
+ .../Scripts/PermissionsManager.cs.meta             |    11 [31m-[m
+ .../Scripts/PlatformUnderstanding.cs               |   117 [31m-[m
+ .../Scripts/PlatformUnderstanding.cs.meta          |    11 [31m-[m
+ .../Scripts/RotationAxisLockGrabTransformer.cs     |    45 [31m-[m
+ .../RotationAxisLockGrabTransformer.cs.meta        |    11 [31m-[m
+ .../TeleportVolumeAnchorAffordanceStateLink.cs     |    97 [31m-[m
+ ...TeleportVolumeAnchorAffordanceStateLink.cs.meta |    11 [31m-[m
+ .../Starter Assets/Scripts/ToggleColorToggler.cs   |    70 [31m-[m
+ .../Scripts/ToggleColorToggler.cs.meta             |    11 [31m-[m
+ .../Starter Assets/Scripts/ToggleComponentZone.cs  |   173 [31m-[m
+ .../Scripts/ToggleComponentZone.cs.meta            |    11 [31m-[m
+ .../Scripts/XRPokeFollowAffordance.cs              |   298 [31m-[m
+ .../Scripts/XRPokeFollowAffordance.cs.meta         |    11 [31m-[m
+ .../3.3.2/Starter Assets/Shaders.meta              |     8 [31m-[m
+ .../Starter Assets/Shaders/BiRP_Fresnel.shader     |    83 [31m-[m
+ .../Shaders/BiRP_Fresnel.shader.meta               |    10 [31m-[m
+ .../Shaders/Interactable.shadergraph               |  4145 [31m----[m
+ .../Shaders/Interactable.shadergraph.meta          |    10 [31m-[m
+ .../3.3.2/Starter Assets/Shaders/UI-NoZTest.shader |    95 [31m-[m
+ .../Starter Assets/Shaders/UI-NoZTest.shader.meta  |    10 [31m-[m
+ .../Shaders/Unlit_Fresnel.shadergraph              |  2197 [31m--[m
+ .../Shaders/Unlit_Fresnel.shadergraph.meta         |    10 [31m-[m
+ .../Shaders/Unlit_ShaderGraph.shadergraph          |   755 [31m-[m
+ .../Shaders/Unlit_ShaderGraph.shadergraph.meta     |    10 [31m-[m
+ .../3.3.2/Starter Assets/StarterAssets.asmdef      |    26 [31m-[m
+ .../3.3.2/Starter Assets/StarterAssets.asmdef.meta |     7 [31m-[m
+ .../3.3.2/Starter Assets/Textures.meta             |     8 [31m-[m
+ .../Starter Assets/Textures/DefaultMaterial_AO.png |   Bin [31m891404[m -> [32m0[m bytes
+ .../Textures/DefaultMaterial_AO.png.meta           |   135 [31m-[m
+ .../3.3.2/Starter Assets/TunnelingVignette.meta    |     8 [31m-[m
+ .../TunnelingVignette/TunnelingVignette.mat        |   169 [31m-[m
+ .../TunnelingVignette/TunnelingVignette.mat.meta   |     8 [31m-[m
+ .../TunnelingVignette/TunnelingVignette.prefab     |   131 [31m-[m
+ .../TunnelingVignette.prefab.meta                  |     7 [31m-[m
+ .../TunnelingVignette/TunnelingVignette.shader     |    78 [31m-[m
+ .../TunnelingVignette.shader.meta                  |    10 [31m-[m
+ .../TunnelingVignetteHemisphere.fbx                |   Bin [31m55932[m -> [32m0[m bytes
+ .../TunnelingVignetteHemisphere.fbx.meta           |   106 [31m-[m
+ .../TunnelingVignetteSG.shadergraph                |   315 [31m-[m
+ .../TunnelingVignetteSG.shadergraph.meta           |    10 [31m-[m
+ .../XRI Default Input Actions.inputactions         |  3403 [31m---[m
+ .../XRI Default Input Actions.inputactions.meta    |    14 [31m-[m
+ .../3.3.2/XR Device Simulator.meta                 |     8 [31m-[m
+ .../XR Device Simulator/DeviceSimulator.asmdef     |    25 [31m-[m
+ .../DeviceSimulator.asmdef.meta                    |     7 [31m-[m
+ .../Hand Expression Captures.meta                  |     8 [31m-[m
+ .../Fist Expression Capture.asset                  |   121 [31m-[m
+ .../Fist Expression Capture.asset.meta             |     8 [31m-[m
+ .../Grab Expression Capture.asset                  |   121 [31m-[m
+ .../Grab Expression Capture.asset.meta             |     8 [31m-[m
+ .../Open Expression Capture.asset                  |   121 [31m-[m
+ .../Open Expression Capture.asset.meta             |     8 [31m-[m
+ .../Pinch Expression Capture.asset                 |   121 [31m-[m
+ .../Pinch Expression Capture.asset.meta            |     8 [31m-[m
+ .../Poke Expression Capture.asset                  |   121 [31m-[m
+ .../Poke Expression Capture.asset.meta             |     8 [31m-[m
+ .../Resting Expression Capture.asset               |   121 [31m-[m
+ .../Resting Expression Capture.asset.meta          |     8 [31m-[m
+ .../Thumb Expression Capture.asset                 |   121 [31m-[m
+ .../Thumb Expression Capture.asset.meta            |     8 [31m-[m
+ .../3.3.2/XR Device Simulator/Scripts.meta         |     8 [31m-[m
+ .../Scripts/XRDeviceSimulatorControllerUI.cs       |   253 [31m-[m
+ .../Scripts/XRDeviceSimulatorControllerUI.cs.meta  |    11 [31m-[m
+ .../Scripts/XRDeviceSimulatorHandsUI.cs            |   206 [31m-[m
+ .../Scripts/XRDeviceSimulatorHandsUI.cs.meta       |    11 [31m-[m
+ .../Scripts/XRDeviceSimulatorUI.cs                 |  1181 [31m-[m
+ .../Scripts/XRDeviceSimulatorUI.cs.meta            |    11 [31m-[m
+ .../3.3.2/XR Device Simulator/UI.meta              |     8 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/Controller.meta   |     8 [31m-[m
+ .../UI/Controller/ControllerLeft.png               |   Bin [31m25129[m -> [32m0[m bytes
+ .../UI/Controller/ControllerLeft.png.meta          |   159 [31m-[m
+ .../UI/Controller/ControllerOverlayLinesLeft.png   |   Bin [31m10158[m -> [32m0[m bytes
+ .../Controller/ControllerOverlayLinesLeft.png.meta |   159 [31m-[m
+ .../UI/Controller/ControllerOverlayLinesRight.png  |   Bin [31m10696[m -> [32m0[m bytes
+ .../ControllerOverlayLinesRight.png.meta           |   159 [31m-[m
+ .../UI/Controller/ControllerRight.png              |   Bin [31m25056[m -> [32m0[m bytes
+ .../UI/Controller/ControllerRight.png.meta         |   159 [31m-[m
+ .../XR Device Simulator/UI/Controller/xr_ctlr.png  |   Bin [31m17982[m -> [32m0[m bytes
+ .../UI/Controller/xr_ctlr.png.meta                 |   147 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/General.meta      |     8 [31m-[m
+ .../XR Device Simulator/UI/General/CloseWindow.png |   Bin [31m7147[m -> [32m0[m bytes
+ .../UI/General/CloseWindow.png.meta                |   159 [31m-[m
+ .../UI/General/CycleXRDevices.png                  |   Bin [31m7983[m -> [32m0[m bytes
+ .../UI/General/CycleXRDevices.png.meta             |   159 [31m-[m
+ .../UI/General/DeviceSimUI_bg.png                  |   Bin [31m1945[m -> [32m0[m bytes
+ .../UI/General/DeviceSimUI_bg.png.meta             |   159 [31m-[m
+ .../XR Device Simulator/UI/General/Gripper.png     |   Bin [31m3154[m -> [32m0[m bytes
+ .../UI/General/Gripper.png.meta                    |   147 [31m-[m
+ .../UI/General/KeyboardIcon.png                    |   Bin [31m5866[m -> [32m0[m bytes
+ .../UI/General/KeyboardIcon.png.meta               |   159 [31m-[m
+ .../XR Device Simulator/UI/General/Locked.png      |   Bin [31m5673[m -> [32m0[m bytes
+ .../XR Device Simulator/UI/General/Locked.png.meta |   159 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/General/Look.png  |   Bin [31m6733[m -> [32m0[m bytes
+ .../XR Device Simulator/UI/General/Look.png.meta   |   159 [31m-[m
+ .../XR Device Simulator/UI/General/OpenWindow.png  |   Bin [31m5680[m -> [32m0[m bytes
+ .../UI/General/OpenWindow.png.meta                 |   159 [31m-[m
+ .../XR Device Simulator/UI/General/Unlocked.png    |   Bin [31m4359[m -> [32m0[m bytes
+ .../UI/General/Unlocked.png.meta                   |   159 [31m-[m
+ .../UI/General/btn_bgbottom.png                    |   Bin [31m569[m -> [32m0[m bytes
+ .../UI/General/btn_bgbottom.png.meta               |   147 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/Hands.meta        |     8 [31m-[m
+ .../XR Device Simulator/UI/Hands/Hand_Default.png  |   Bin [31m9881[m -> [32m0[m bytes
+ .../UI/Hands/Hand_Default.png.meta                 |   172 [31m-[m
+ .../XR Device Simulator/UI/Hands/Hand_Fist.png     |   Bin [31m12933[m -> [32m0[m bytes
+ .../UI/Hands/Hand_Fist.png.meta                    |   172 [31m-[m
+ .../XR Device Simulator/UI/Hands/Hand_Grab.png     |   Bin [31m15126[m -> [32m0[m bytes
+ .../UI/Hands/Hand_Grab.png.meta                    |   172 [31m-[m
+ .../XR Device Simulator/UI/Hands/Hand_Open.png     |   Bin [31m9927[m -> [32m0[m bytes
+ .../UI/Hands/Hand_Open.png.meta                    |   172 [31m-[m
+ .../XR Device Simulator/UI/Hands/Hand_Pinch.png    |   Bin [31m12073[m -> [32m0[m bytes
+ .../UI/Hands/Hand_Pinch.png.meta                   |   172 [31m-[m
+ .../XR Device Simulator/UI/Hands/Hand_Poke.png     |   Bin [31m7376[m -> [32m0[m bytes
+ .../UI/Hands/Hand_Poke.png.meta                    |   172 [31m-[m
+ .../XR Device Simulator/UI/Hands/Hand_Thumb.png    |   Bin [31m6530[m -> [32m0[m bytes
+ .../UI/Hands/Hand_Thumb.png.meta                   |   172 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/Hands/hand.png    |   Bin [31m11255[m -> [32m0[m bytes
+ .../XR Device Simulator/UI/Hands/hand.png.meta     |   147 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/Head.meta         |     8 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/Head/HMD.png      |   Bin [31m9918[m -> [32m0[m bytes
+ .../3.3.2/XR Device Simulator/UI/Head/HMD.png.meta |   135 [31m-[m
+ .../XR Device Simulator/UI/Head/HMDOverlay.png     |   Bin [31m14953[m -> [32m0[m bytes
+ .../UI/Head/HMDOverlay.png.meta                    |   159 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/Head/HMD_d.png    |   Bin [31m11463[m -> [32m0[m bytes
+ .../XR Device Simulator/UI/Head/HMD_d.png.meta     |   135 [31m-[m
+ .../XR Device Simulator/UI/Head/MoveRotateTool.png |   Bin [31m15421[m -> [32m0[m bytes
+ .../UI/Head/MoveRotateTool.png.meta                |   147 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/Head/Movement.png |   Bin [31m8801[m -> [32m0[m bytes
+ .../XR Device Simulator/UI/Head/Movement.png.meta  |   147 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/Head/XR.png       |   Bin [31m8084[m -> [32m0[m bytes
+ .../3.3.2/XR Device Simulator/UI/Head/XR.png.meta  |   147 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/Head/xr_hmd.png   |   Bin [31m13063[m -> [32m0[m bytes
+ .../XR Device Simulator/UI/Head/xr_hmd.png.meta    |   147 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/Mouse.meta        |     8 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/Mouse/Cursor.png  |   Bin [31m7340[m -> [32m0[m bytes
+ .../XR Device Simulator/UI/Mouse/Cursor.png.meta   |   147 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/Mouse/Mouse.png   |   Bin [31m8314[m -> [32m0[m bytes
+ .../XR Device Simulator/UI/Mouse/Mouse.png.meta    |   147 [31m-[m
+ .../UI/Mouse/MouseMoveAround.png                   |   Bin [31m10824[m -> [32m0[m bytes
+ .../UI/Mouse/MouseMoveAround.png.meta              |   147 [31m-[m
+ .../3.3.2/XR Device Simulator/UI/Mouse/MouseR.png  |   Bin [31m13952[m -> [32m0[m bytes
+ .../XR Device Simulator/UI/Mouse/MouseR.png.meta   |   135 [31m-[m
+ .../XR Device Simulator/UI/Mouse/MouseR_d.png      |   Bin [31m8840[m -> [32m0[m bytes
+ .../XR Device Simulator/UI/Mouse/MouseR_d.png.meta |   147 [31m-[m
+ .../UI/XR Device Simulator UI.prefab               | 14338 [31m-----------[m
+ .../UI/XR Device Simulator UI.prefab.meta          |     7 [31m-[m
+ .../XR Device Controller Controls.inputactions     |   417 [31m-[m
+ ...XR Device Controller Controls.inputactions.meta |    14 [31m-[m
+ .../XR Device Hand Controls.inputactions           |   134 [31m-[m
+ .../XR Device Hand Controls.inputactions.meta      |    14 [31m-[m
+ .../XR Device Simulator Controls.inputactions      |   580 [31m-[m
+ .../XR Device Simulator Controls.inputactions.meta |    14 [31m-[m
+ .../XR Device Simulator/XR Device Simulator.prefab |   337 [31m-[m
+ .../XR Device Simulator.prefab.meta                |     7 [31m-[m
+ Assets/Scenes.meta                                 |     2 [32m+[m[31m-[m
+ "Assets/Scenes/EscenarioDise\303\261o.unity"       | 23879 [31m-------------------[m
+ "Assets/Scenes/EscenarioDise\303\261o.unity.meta"  |     7 [31m-[m
+ Assets/Scenes/SampleScene.meta                     |     8 [31m-[m
+ Assets/Scenes/SampleScene.unity                    |  2669 [32m+[m[31m--[m
+ .../Scenes/SampleScene/Global Volume Profile.asset |    66 [31m-[m
+ .../SampleScene/Global Volume Profile.asset.meta   |     8 [31m-[m
+ Assets/Scenes/SampleScene/NavMesh-Plane.asset      |   Bin [31m7404[m -> [32m0[m bytes
+ Assets/Scenes/SampleScene/NavMesh-Plane.asset.meta |     8 [31m-[m
+ Assets/Script.meta                                 |     8 [31m-[m
+ Assets/Script/Atom.cs                              |    50 [31m-[m
+ Assets/Script/Atom.cs.meta                         |     2 [31m-[m
+ Assets/Script/AtomData.cs                          |    10 [31m-[m
+ Assets/Script/AtomData.cs.meta                     |     2 [31m-[m
+ Assets/Script/AtomRespawn.cs                       |    18 [31m-[m
+ Assets/Script/AtomRespawn.cs.meta                  |     2 [31m-[m
+ Assets/Script/AtomSocketBuilder.cs                 |    68 [31m-[m
+ Assets/Script/AtomSocketBuilder.cs.meta            |     2 [31m-[m
+ Assets/Script/AtomSpawner.cs                       |   192 [31m-[m
+ Assets/Script/AtomSpawner.cs.meta                  |     2 [31m-[m
+ Assets/Script/BarPlug.cs                           |    23 [31m-[m
+ Assets/Script/BarPlug.cs.meta                      |     2 [31m-[m
+ Assets/Script/BarPort.cs                           |    35 [31m-[m
+ Assets/Script/BarPort.cs.meta                      |     2 [31m-[m
+ Assets/Script/BarSpawner.cs                        |   141 [31m-[m
+ Assets/Script/BarSpawner.cs.meta                   |     2 [31m-[m
+ Assets/Script/Bond.cs                              |   270 [31m-[m
+ Assets/Script/Bond.cs.meta                         |     2 [31m-[m
+ Assets/Script/BondSocket.cs                        |    50 [31m-[m
+ Assets/Script/BondSocket.cs.meta                   |     2 [31m-[m
+ Assets/Script/DeliveryEvaluator.cs                 |   150 [31m-[m
+ Assets/Script/DeliveryEvaluator.cs.meta            |     2 [31m-[m
+ Assets/Script/GestorEncargosVR.cs                  |   107 [31m-[m
+ Assets/Script/GestorEncargosVR.cs.meta             |     2 [31m-[m
+ Assets/Script/LabButton.cs                         |    58 [31m-[m
+ Assets/Script/LabButton.cs.meta                    |     2 [31m-[m
+ Assets/Script/MoleculeGraph.cs                     |   163 [31m-[m
+ Assets/Script/MoleculeGraph.cs.meta                |     2 [31m-[m
+ Assets/Script/MoleculeValidator.cs                 |    68 [31m-[m
+ Assets/Script/MoleculeValidator.cs.meta            |     2 [31m-[m
+ Assets/Script/OrderManager.cs                      |   132 [31m-[m
+ Assets/Script/OrderManager.cs.meta                 |     2 [31m-[m
+ Assets/Script/OrderScreen.cs                       |    73 [31m-[m
+ Assets/Script/OrderScreen.cs.meta                  |     2 [31m-[m
+ Assets/Script/PuertaAnimada.cs                     |    34 [31m-[m
+ Assets/Script/PuertaAnimada.cs.meta                |     2 [31m-[m
+ Assets/Script/RecipeCatalog.cs                     |    21 [31m-[m
+ Assets/Script/RecipeCatalog.cs.meta                |     2 [31m-[m
+ Assets/Script/RecipeCatalogBuilder.cs              |   172 [31m-[m
+ Assets/Script/RecipeCatalogBuilder.cs.meta         |     2 [31m-[m
+ Assets/Script/RecipeData.cs                        |    73 [31m-[m
+ Assets/Script/RecipeData.cs.meta                   |     2 [31m-[m
+ Assets/Script/SampleItem.cs                        |    78 [31m-[m
+ Assets/Script/SampleItem.cs.meta                   |     2 [31m-[m
+ Assets/Script/ScoreManager.cs                      |   102 [31m-[m
+ Assets/Script/ScoreManager.cs.meta                 |     2 [31m-[m
+ Assets/Script/TransmutatorMachine.cs               |   401 [31m-[m
+ Assets/Script/TransmutatorMachine.cs.meta          |     2 [31m-[m
+ Assets/Settings/Mobile_RPAsset.asset               |    14 [32m+[m[31m-[m
+ .../UniversalRenderPipelineGlobalSettings.asset    |   124 [32m+[m[31m-[m
+ Assets/TextMesh Pro.meta                           |     8 [31m-[m
+ Assets/TextMesh Pro/Fonts.meta                     |     8 [31m-[m
+ Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt |    46 [31m-[m
+ .../Fonts/LiberationSans - OFL.txt.meta            |     8 [31m-[m
+ Assets/TextMesh Pro/Fonts/LiberationSans.ttf       |   Bin [31m350200[m -> [32m0[m bytes
+ Assets/TextMesh Pro/Fonts/LiberationSans.ttf.meta  |    19 [31m-[m
+ Assets/TextMesh Pro/Resources.meta                 |     8 [31m-[m
+ .../TextMesh Pro/Resources/Fonts & Materials.meta  |     9 [31m-[m
+ .../LiberationSans SDF - Drop Shadow.mat           |   106 [31m-[m
+ .../LiberationSans SDF - Drop Shadow.mat.meta      |     8 [31m-[m
+ .../LiberationSans SDF - Fallback.asset            |   348 [31m-[m
+ .../LiberationSans SDF - Fallback.asset.meta       |     8 [31m-[m
+ .../LiberationSans SDF - Outline.mat               |   104 [31m-[m
+ .../LiberationSans SDF - Outline.mat.meta          |     8 [31m-[m
+ .../Fonts & Materials/LiberationSans SDF.asset     |  7821 [31m------[m
+ .../LiberationSans SDF.asset.meta                  |     8 [31m-[m
+ .../LineBreaking Following Characters.txt          |     1 [31m-[m
+ .../LineBreaking Following Characters.txt.meta     |     8 [31m-[m
+ .../Resources/LineBreaking Leading Characters.txt  |     1 [31m-[m
+ .../LineBreaking Leading Characters.txt.meta       |     8 [31m-[m
+ Assets/TextMesh Pro/Resources/Sprite Assets.meta   |     9 [31m-[m
+ .../Resources/Sprite Assets/EmojiOne.asset         |   659 [31m-[m
+ .../Resources/Sprite Assets/EmojiOne.asset.meta    |     8 [31m-[m
+ Assets/TextMesh Pro/Resources/Style Sheets.meta    |     9 [31m-[m
+ .../Style Sheets/Default Style Sheet.asset         |    81 [31m-[m
+ .../Style Sheets/Default Style Sheet.asset.meta    |     8 [31m-[m
+ Assets/TextMesh Pro/Resources/TMP Settings.asset   |    52 [31m-[m
+ .../TextMesh Pro/Resources/TMP Settings.asset.meta |     8 [31m-[m
+ Assets/TextMesh Pro/Shaders.meta                   |     8 [31m-[m
+ Assets/TextMesh Pro/Shaders/SDFFunctions.hlsl      |   178 [31m-[m
+ Assets/TextMesh Pro/Shaders/SDFFunctions.hlsl.meta |    10 [31m-[m
+ .../Shaders/TMP_Bitmap-Custom-Atlas.shader         |   145 [31m-[m
+ .../Shaders/TMP_Bitmap-Custom-Atlas.shader.meta    |     9 [31m-[m
+ .../TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader  |   155 [31m-[m
+ .../Shaders/TMP_Bitmap-Mobile.shader.meta          |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader      |   145 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader.meta |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader |   326 [31m-[m
+ .../Shaders/TMP_SDF Overlay.shader.meta            |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader     |   321 [31m-[m
+ .../TextMesh Pro/Shaders/TMP_SDF SSD.shader.meta   |     9 [31m-[m
+ .../Shaders/TMP_SDF-HDRP LIT.shadergraph           | 12074 [31m----------[m
+ .../Shaders/TMP_SDF-HDRP LIT.shadergraph.meta      |    10 [31m-[m
+ .../Shaders/TMP_SDF-HDRP UNLIT.shadergraph         | 11759 [31m---------[m
+ .../Shaders/TMP_SDF-HDRP UNLIT.shadergraph.meta    |    10 [31m-[m
+ .../Shaders/TMP_SDF-Mobile Masking.shader          |   258 [31m-[m
+ .../Shaders/TMP_SDF-Mobile Masking.shader.meta     |     9 [31m-[m
+ .../Shaders/TMP_SDF-Mobile Overlay.shader          |   252 [31m-[m
+ .../Shaders/TMP_SDF-Mobile Overlay.shader.meta     |     9 [31m-[m
+ .../TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader |   106 [31m-[m
+ .../Shaders/TMP_SDF-Mobile SSD.shader.meta         |     9 [31m-[m
+ .../Shaders/TMP_SDF-Mobile-2-Pass.shader           |   389 [31m-[m
+ .../Shaders/TMP_SDF-Mobile-2-Pass.shader.meta      |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader  |   250 [31m-[m
+ .../Shaders/TMP_SDF-Mobile.shader.meta             |     9 [31m-[m
+ .../Shaders/TMP_SDF-Surface-Mobile.shader          |   139 [31m-[m
+ .../Shaders/TMP_SDF-Surface-Mobile.shader.meta     |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader |   159 [31m-[m
+ .../Shaders/TMP_SDF-Surface.shader.meta            |     9 [31m-[m
+ .../Shaders/TMP_SDF-URP Lit.shadergraph            | 11932 [31m---------[m
+ .../Shaders/TMP_SDF-URP Lit.shadergraph.meta       |    10 [31m-[m
+ .../Shaders/TMP_SDF-URP Unlit.shadergraph          | 11629 [31m---------[m
+ .../Shaders/TMP_SDF-URP Unlit.shadergraph.meta     |    10 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_SDF.shader         |   326 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_SDF.shader.meta    |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_Sprite.shader      |   131 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMP_Sprite.shader.meta |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMPro.cginc            |    84 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMPro.cginc.meta       |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc     |   165 [31m-[m
+ .../TextMesh Pro/Shaders/TMPro_Mobile.cginc.meta   |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc |    80 [31m-[m
+ .../Shaders/TMPro_Properties.cginc.meta            |     9 [31m-[m
+ Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc    |    99 [31m-[m
+ .../TextMesh Pro/Shaders/TMPro_Surface.cginc.meta  |     9 [31m-[m
+ Assets/TextMesh Pro/Sprites.meta                   |     8 [31m-[m
+ .../TextMesh Pro/Sprites/EmojiOne Attribution.txt  |     3 [31m-[m
+ .../Sprites/EmojiOne Attribution.txt.meta          |     7 [31m-[m
+ Assets/TextMesh Pro/Sprites/EmojiOne.json          |   156 [31m-[m
+ Assets/TextMesh Pro/Sprites/EmojiOne.json.meta     |     8 [31m-[m
+ Assets/TextMesh Pro/Sprites/EmojiOne.png           |   Bin [31m112319[m -> [32m0[m bytes
+ Assets/TextMesh Pro/Sprites/EmojiOne.png.meta      |   431 [31m-[m
+ Assets/XR.meta                                     |     8 [31m-[m
+ Assets/XR/Loaders.meta                             |     8 [31m-[m
+ Assets/XR/Loaders/OculusLoader.asset               |    14 [31m-[m
+ Assets/XR/Loaders/OculusLoader.asset.meta          |     8 [31m-[m
+ Assets/XR/Loaders/OpenXRLoader.asset               |    14 [31m-[m
+ Assets/XR/Loaders/OpenXRLoader.asset.meta          |     8 [31m-[m
+ Assets/XR/Settings.meta                            |     8 [31m-[m
+ Assets/XR/Settings/OculusSettings.asset            |    36 [31m-[m
+ Assets/XR/Settings/OculusSettings.asset.meta       |     8 [31m-[m
+ Assets/XR/Settings/OpenXR Editor Settings.asset    |    18 [31m-[m
+ .../XR/Settings/OpenXR Editor Settings.asset.meta  |     8 [31m-[m
+ Assets/XR/Settings/OpenXRPackageSettings.asset     |   547 [31m-[m
+ .../XR/Settings/OpenXRPackageSettings.asset.meta   |     8 [31m-[m
+ Assets/XR/XRGeneralSettingsPerBuildTarget.asset    |    48 [31m-[m
+ .../XR/XRGeneralSettingsPerBuildTarget.asset.meta  |     8 [31m-[m
+ Assets/XRI.meta                                    |     8 [31m-[m
+ Assets/XRI/Settings.meta                           |     8 [31m-[m
+ Assets/XRI/Settings/Resources.meta                 |     8 [31m-[m
+ .../Resources/InteractionLayerSettings.asset       |    47 [31m-[m
+ .../Resources/InteractionLayerSettings.asset.meta  |     8 [31m-[m
+ .../Resources/XRDeviceSimulatorSettings.asset      |    18 [31m-[m
+ .../Resources/XRDeviceSimulatorSettings.asset.meta |     8 [31m-[m
+ .../XRI/Settings/XRInteractionEditorSettings.asset |    15 [31m-[m
+ .../XRInteractionEditorSettings.asset.meta         |     8 [31m-[m
+ Assets/_Recovery.meta                              |     8 [31m-[m
+ Assets/_Recovery/0 (1).unity                       |  1594 [31m--[m
+ Assets/_Recovery/0 (1).unity.meta                  |     7 [31m-[m
+ Assets/_Recovery/0.unity                           |  2668 [31m---[m
+ Assets/_Recovery/0.unity.meta                      |     7 [31m-[m
+ Assets/project.meta                                |     8 [31m-[m
+ Assets/project/3D model Pack Baskets.meta          |     8 [31m-[m
+ Assets/project/3D model Pack Baskets/Demo.unity    |   710 [31m-[m
+ .../project/3D model Pack Baskets/Demo.unity.meta  |    14 [31m-[m
+ .../project/3D model Pack Baskets/Materials.meta   |     8 [31m-[m
+ .../Materials/Basket_dark.mat                      |    81 [31m-[m
+ .../Materials/Basket_dark.mat.meta                 |    15 [31m-[m
+ .../Materials/Basket_light.mat                     |   143 [31m-[m
+ .../Materials/Basket_light.mat.meta                |    15 [31m-[m
+ Assets/project/3D model Pack Baskets/Meshes.meta   |     8 [31m-[m
+ .../3D model Pack Baskets/Meshes/Basket_01.fbx     |   Bin [31m146608[m -> [32m0[m bytes
+ .../Meshes/Basket_01.fbx.meta                      |   105 [31m-[m
+ .../3D model Pack Baskets/Meshes/Basket_02.fbx     |   Bin [31m151712[m -> [32m0[m bytes
+ .../Meshes/Basket_02.fbx.meta                      |   105 [31m-[m
+ .../3D model Pack Baskets/Meshes/Basket_03.fbx     |   Bin [31m148848[m -> [32m0[m bytes
+ .../Meshes/Basket_03.fbx.meta                      |   105 [31m-[m
+ Assets/project/3D model Pack Baskets/Prefabs.meta  |     8 [31m-[m
+ .../3D model Pack Baskets/Prefabs/dark.meta        |     8 [31m-[m
+ .../Prefabs/dark/Basket_01_dark.prefab             |   100 [31m-[m
+ .../Prefabs/dark/Basket_01_dark.prefab.meta        |    14 [31m-[m
+ .../Prefabs/dark/Basket_02_dark.prefab             |   100 [31m-[m
+ .../Prefabs/dark/Basket_02_dark.prefab.meta        |    14 [31m-[m
+ .../Prefabs/dark/Basket_03_dark.prefab             |   115 [31m-[m
+ .../Prefabs/dark/Basket_03_dark.prefab.meta        |    14 [31m-[m
+ .../3D model Pack Baskets/Prefabs/dark/basket.mat  |   137 [31m-[m
+ .../Prefabs/dark/basket.mat.meta                   |     8 [31m-[m
+ .../3D model Pack Baskets/Prefabs/light.meta       |     8 [31m-[m
+ .../Prefabs/light/Basket_01_light.prefab           |   100 [31m-[m
+ .../Prefabs/light/Basket_01_light.prefab.meta      |    14 [31m-[m
+ .../Prefabs/light/Basket_02_light.prefab           |   100 [31m-[m
+ .../Prefabs/light/Basket_02_light.prefab.meta      |    14 [31m-[m
+ .../Prefabs/light/Basket_03_light.prefab           |   100 [31m-[m
+ .../Prefabs/light/Basket_03_light.prefab.meta      |    14 [31m-[m
+ Assets/project/3D model Pack Baskets/Textures.meta |     8 [31m-[m
+ .../3D model Pack Baskets/Textures/dark.meta       |     8 [31m-[m
+ .../Textures/dark/Basket_darkMixed_AO.png          |   Bin [31m421797[m -> [32m0[m bytes
+ .../Textures/dark/Basket_darkMixed_AO.png.meta     |    98 [31m-[m
+ .../Textures/dark/Basket_dark_Base_Color.png       |   Bin [31m4344541[m -> [32m0[m bytes
+ .../Textures/dark/Basket_dark_Base_Color.png.meta  |    98 [31m-[m
+ .../Textures/dark/Basket_dark_Height.png           |   Bin [31m712026[m -> [32m0[m bytes
+ .../Textures/dark/Basket_dark_Height.png.meta      |    98 [31m-[m
+ .../Textures/dark/Basket_dark_Metallic.png         |   Bin [31m4166[m -> [32m0[m bytes
+ .../Textures/dark/Basket_dark_Metallic.png.meta    |    98 [31m-[m
+ .../Textures/dark/Basket_dark_Normal_OpenGL.png    |   Bin [31m5227423[m -> [32m0[m bytes
+ .../dark/Basket_dark_Normal_OpenGL.png.meta        |    98 [31m-[m
+ .../Textures/dark/Basket_dark_Roughness.png        |   Bin [31m1289850[m -> [32m0[m bytes
+ .../Textures/dark/Basket_dark_Roughness.png.meta   |    98 [31m-[m
+ .../3D model Pack Baskets/Textures/light.meta      |     8 [31m-[m
+ .../Textures/light/Basket_light_Base_Color_2.png   |   Bin [31m3311936[m -> [32m0[m bytes
+ .../light/Basket_light_Base_Color_2.png.meta       |    98 [31m-[m
+ .../Textures/light/Basket_light_Height.png         |   Bin [31m712026[m -> [32m0[m bytes
+ .../Textures/light/Basket_light_Height.png.meta    |    98 [31m-[m
+ .../Textures/light/Basket_light_Metallic.png       |   Bin [31m4166[m -> [32m0[m bytes
+ .../Textures/light/Basket_light_Metallic.png.meta  |    98 [31m-[m
+ .../Textures/light/Basket_light_Mixed_AO.png       |   Bin [31m421797[m -> [32m0[m bytes
+ .../Textures/light/Basket_light_Mixed_AO.png.meta  |    98 [31m-[m
+ .../Textures/light/Basket_light_Normal_OpenGL.png  |   Bin [31m5227423[m -> [32m0[m bytes
+ .../light/Basket_light_Normal_OpenGL.png.meta      |    98 [31m-[m
+ .../Textures/light/Basket_light_Roughness.png      |   Bin [31m1289850[m -> [32m0[m bytes
+ .../Textures/light/Basket_light_Roughness.png.meta |    98 [31m-[m
+ Packages/manifest.json                             |    10 [32m+[m[31m-[m
+ Packages/packages-lock.json                        |   101 [32m+[m[31m-[m
+ ProjectSettings/DynamicsManager.asset              |    19 [32m+[m[31m-[m
+ ProjectSettings/EditorBuildSettings.asset          |     3 [31m-[m
+ ProjectSettings/ProjectSettings.asset              |    16 [32m+[m[31m-[m
+ ProjectSettings/ProjectVersion.txt                 |     4 [32m+[m[31m-[m
+ ProjectSettings/SceneTemplateSettings.json         |   121 [31m-[m
+ ProjectSettings/ShaderGraphSettings.asset          |     1 [31m-[m
+ ProjectSettings/TagManager.asset                   |    38 [32m+[m[31m-[m
+ VRQuimicaUAO                                       |     1 [31m-[m
+ 953 files changed, 237 insertions(+), 227433 deletions(-)

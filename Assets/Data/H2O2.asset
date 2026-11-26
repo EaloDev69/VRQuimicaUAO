@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56874d989faaea4483ac3a567c3b416, type: 3}
+  m_Name: H2O2
+  m_EditorClassIdentifier: Assembly-CSharp::RecipeData
+  displayName: "Per\xF3xido de hidr\xF3geno"
+  formula: H2O2
+  level: 2
+  category: 1
+  atoms:
+  - {fileID: 11400000, guid: a694683fd9b16474ba0fcf93e048b9ec, type: 2}
+  - {fileID: 11400000, guid: a694683fd9b16474ba0fcf93e048b9ec, type: 2}
+  - {fileID: 11400000, guid: 965430655ac392244bd8012936e76dd0, type: 2}
+  - {fileID: 11400000, guid: 965430655ac392244bd8012936e76dd0, type: 2}
+  bonds:
+  - a: 0
+    b: 1
+  - a: 0
+    b: 2
+  - a: 0
+    b: 3
+  - a: 0
+    b: 4
+  basePoints: 150
+  timeLimit: 150
+  effectPrefab: {fileID: 0}
+  sampleColor: {r: 0.47358483, g: 0.9552726, b: 1, a: 1}
+  educationalFact: "Dos ox\xEDgenos se unen entre s\xED; cada uno completa su 2\xAA
+    conexi\xF3n con un H."

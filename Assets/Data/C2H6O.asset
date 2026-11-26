@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56874d989faaea4483ac3a567c3b416, type: 3}
+  m_Name: C2H6O
+  m_EditorClassIdentifier: Assembly-CSharp::RecipeData
+  displayName: Etanol
+  formula: C2H6O
+  level: 2
+  category: 1
+  atoms:
+  - {fileID: 11400000, guid: b59c525026a1c7648bc82f3abe334c4b, type: 2}
+  - {fileID: 11400000, guid: b59c525026a1c7648bc82f3abe334c4b, type: 2}
+  - {fileID: 11400000, guid: a694683fd9b16474ba0fcf93e048b9ec, type: 2}
+  - {fileID: 11400000, guid: 965430655ac392244bd8012936e76dd0, type: 2}
+  - {fileID: 11400000, guid: 965430655ac392244bd8012936e76dd0, type: 2}
+  - {fileID: 11400000, guid: 965430655ac392244bd8012936e76dd0, type: 2}
+  - {fileID: 11400000, guid: 965430655ac392244bd8012936e76dd0, type: 2}
+  - {fileID: 11400000, guid: 965430655ac392244bd8012936e76dd0, type: 2}
+  - {fileID: 11400000, guid: 965430655ac392244bd8012936e76dd0, type: 2}
+  bonds:
+  - a: 0
+    b: 1
+  - a: 1
+    b: 2
+  - a: 2
+    b: 3
+  - a: 0
+    b: 4
+  - a: 0
+    b: 5
+  - a: 0
+    b: 6
+  - a: 1
+    b: 7
+  - a: 1
+    b: 8
+  basePoints: 150
+  timeLimit: 210
+  effectPrefab: {fileID: 0}
+  sampleColor: {r: 1, g: 0, b: 0.4886961, a: 1}
+  educationalFact: "Cadena de 2 carbonos (C0 con H4-6, C1 con H7-8) y ox\xEDgeno
+    (O2) con su H3."
