@@ -30,8 +30,11 @@ public class OrderManager : MonoBehaviour
     public int strictTimerFromLevel = 2;
     public float nextOrderDelay = 3f;
     public bool shuffleOrders = false;
+<<<<<<< HEAD
     [Tooltip("Modo manual: los pedidos los acepta el GestorEncargosVR (AcceptOrder). No se usa la cola por niveles ni LevelStarter. Aquí agotar el tiempo SIEMPRE pierde el pedido")]
     public bool manualOrders = true;
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     [Range(0f, 1f)] public float lowTimeFraction = 0.2f;
 
     [Header("Feedback (sonido, luces)")]
@@ -47,8 +50,12 @@ public class OrderManager : MonoBehaviour
 
     public Order Current { get; private set; }
     public int Level { get; private set; }
+<<<<<<< HEAD
     public bool StrictTimer => manualOrders || Level >= strictTimerFromLevel;
     public bool HasActiveOrder => Current != null && Current.state == OrderState.Active;
+=======
+    public bool StrictTimer => Level >= strictTimerFromLevel;
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 
     readonly Queue<Order> queue = new Queue<Order>();
     bool lowFired;
@@ -85,6 +92,7 @@ public class OrderManager : MonoBehaviour
         onOrderPublished.Invoke();
     }
 
+<<<<<<< HEAD
     /// Modo manual: el GestorEncargosVR acepta un encargo y el tiempo empieza a correr YA.
     /// timeLimit <= 0 usa el tiempo de la receta. Devuelve false si ya hay un pedido en curso.
     public bool AcceptOrder(RecipeData recipe, float timeLimit)
@@ -102,6 +110,9 @@ public class OrderManager : MonoBehaviour
     }
 
     /// Botón Aceptar de la pantalla (modo por niveles): empieza a correr el tiempo. No se puede aceptar dos veces.
+=======
+    /// Botón Aceptar de la pantalla: empieza a correr el tiempo. No se puede aceptar dos veces.
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     public void AcceptCurrent()
     {
         if (Current == null || Current.state != OrderState.Waiting) return;
@@ -130,6 +141,7 @@ public class OrderManager : MonoBehaviour
         Current.state = OrderState.Lost;
         OrderLost?.Invoke(Current);
         onOrderLost.Invoke();
+<<<<<<< HEAD
         if (!manualOrders) Invoke(nameof(PublishNext), nextOrderDelay);
     }
 
@@ -141,6 +153,9 @@ public class OrderManager : MonoBehaviour
         OrderLost?.Invoke(order);
         onOrderLost.Invoke();
         if (!manualOrders) Invoke(nameof(PublishNext), nextOrderDelay);
+=======
+        Invoke(nameof(PublishNext), nextOrderDelay);
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     }
 
     /// Pedido en curso que corresponde a esta receta (null si no hay, o si ya venció)
@@ -156,6 +171,10 @@ public class OrderManager : MonoBehaviour
         order.state = OrderState.Delivered;
         OrderDelivered?.Invoke(order);
         onOrderDelivered.Invoke();
+<<<<<<< HEAD
         if (!manualOrders) Invoke(nameof(PublishNext), nextOrderDelay);
+=======
+        Invoke(nameof(PublishNext), nextOrderDelay);
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     }
 }

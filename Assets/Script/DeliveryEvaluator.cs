@@ -1,5 +1,8 @@
 using System;
+<<<<<<< HEAD
 using System.Collections;
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -12,12 +15,19 @@ public struct DeliveryResult
     public RecipeData recipe;
     public int basePoints;
     public int bonusPoints;
+<<<<<<< HEAD
     public int sealedBonus;
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     public int totalPoints;
     public float timeUsed;
 }
 
+<<<<<<< HEAD
 public enum RejectReason { Empty, NotClassified, NoMatchingOrder, NoActiveOrder, WrongRecipe, Expired }
+=======
+public enum RejectReason { Empty, NotClassified, NoMatchingOrder }
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 
 /// Máquina Evaluadora (GDD 4.10).
 /// El jugador deja la muestra (botella o vaso lleno) en la zona de entrada; al soltarla, la máquina:
@@ -36,12 +46,16 @@ public class DeliveryEvaluator : MonoBehaviour
     [Range(0f, 1f)] public float maxBonus = 0.5f;
     [Tooltip("Exigir que la muestra esté clasificada (decisión pendiente en el GDD)")]
     public bool requireClassification = false;
+<<<<<<< HEAD
     [Tooltip("Puntos extra si la botella se entrega con la tapa puesta (busca el FilteredSocket de la tapa dentro de la botella)")]
     public int sealedBonusPoints = 5;
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 
     [Header("Rechazo")]
     public Vector3 rejectDirection = Vector3.forward;   // en local: hacia dónde rebota la muestra
     public float rejectSpeed = 1.5f;
+<<<<<<< HEAD
     [Tooltip("Segundos que se ignora una muestra después de rechazarla o devolverla (evita rechazos repetidos y sonidos en bucle)")]
     public float rejectCooldown = 1.5f;
 
@@ -57,6 +71,11 @@ public class DeliveryEvaluator : MonoBehaviour
     public float countDuration = 1.2f;
     public UnityEvent onCountTick;           // un "tic" por línea y mientras cuenta el total
     public UnityEvent onCountFinished;       // campanita final
+=======
+
+    [Header("Pantalla de desglose (opcional)")]
+    public TMP_Text breakdownText;
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 
     [Header("Feedback")]
     public UnityEvent onDelivered;
@@ -66,21 +85,30 @@ public class DeliveryEvaluator : MonoBehaviour
     public event Action<SampleItem, RejectReason> Rejected;
 
     float nextCheck;
+<<<<<<< HEAD
     Coroutine countRoutine;
     readonly Dictionary<SampleItem, float> ignoreUntil = new Dictionary<SampleItem, float>();
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 
     void Update()
     {
         if (Time.time < nextCheck) return;
         nextCheck = Time.time + 0.2f;
 
+<<<<<<< HEAD
         foreach (var dead in ignoreUntil.Keys.Where(k => k == null).ToList()) ignoreUntil.Remove(dead);
 
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
         foreach (var s in SamplesInZone())
         {
             var g = s.GetComponent<XRGrabInteractable>();
             if (g != null && g.isSelected) continue;     // se evalúa cuando el jugador la suelta
+<<<<<<< HEAD
             if (ignoreUntil.TryGetValue(s, out float until) && Time.time < until) continue;
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
             Evaluate(s);
         }
     }
@@ -90,6 +118,7 @@ public class DeliveryEvaluator : MonoBehaviour
         if (!s.IsFilled) { Reject(s, RejectReason.Empty); return; }
         if (requireClassification && !s.classified) { Reject(s, RejectReason.NotClassified); return; }
 
+<<<<<<< HEAD
         var cur = orders != null ? orders.Current : null;
         if (cur == null) { Reject(s, RejectReason.NoActiveOrder); return; }
         if (cur.state == OrderState.Lost) { Reject(s, RejectReason.Expired); return; }        // se acabó el tiempo: no recibe la muestra
@@ -101,26 +130,37 @@ public class DeliveryEvaluator : MonoBehaviour
             return;
         }
         var order = orders.FindActive(s.recipe);
+=======
+        var order = orders != null ? orders.FindActive(s.recipe) : null;
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
         if (order == null) { Reject(s, RejectReason.NoMatchingOrder); return; }
 
         int basePts = s.recipe.basePoints;
         float fraction = order.timeLimit > 0f ? Mathf.Clamp01(order.timeRemaining / order.timeLimit) : 0f;
         int bonus = Mathf.RoundToInt(basePts * maxBonus * fraction);
+<<<<<<< HEAD
         // Tapa puesta: el socket de la tapa es un FilteredSocket hijo de la botella y tiene la tapa encajada
         var capSocket = s.GetComponentInChildren<FilteredSocket>();
         int sealedPts = capSocket != null && capSocket.hasSelection ? sealedBonusPoints : 0;
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 
         var result = new DeliveryResult
         {
             recipe = s.recipe,
             basePoints = basePts,
             bonusPoints = bonus,
+<<<<<<< HEAD
             sealedBonus = sealedPts,
             totalPoints = basePts + bonus + sealedPts,
+=======
+            totalPoints = basePts + bonus,
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
             timeUsed = order.TimeUsed
         };
 
         orders.Complete(order);
+<<<<<<< HEAD
         ShowBreakdown(result);
 
         if (recycleContainers)
@@ -133,10 +173,19 @@ public class DeliveryEvaluator : MonoBehaviour
         {
             Destroy(s.gameObject);                // la muestra se consume
         }
+=======
+        if (breakdownText != null)
+            breakdownText.text = $"{s.recipe.displayName}\nBase: {result.basePoints}\n" +
+                                 $"Tiempo: {Mathf.RoundToInt(result.timeUsed)} s\nBonus: +{result.bonusPoints}\n" +
+                                 $"Total: {result.totalPoints}";
+
+        Destroy(s.gameObject);                    // la muestra se consume
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
         onDelivered.Invoke();
         Delivered?.Invoke(result);
     }
 
+<<<<<<< HEAD
     // ---------------------------------------------------------------
     // Desglose con conteo animado (solo visual: los puntos ya se enviaron al ScoreManager)
     // ---------------------------------------------------------------
@@ -193,10 +242,21 @@ public class DeliveryEvaluator : MonoBehaviour
     {
         ignoreUntil[s] = Time.time + rejectCooldown;
         Push(s);
+=======
+    void Reject(SampleItem s, RejectReason reason)
+    {
+        var rb = s.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.linearVelocity = transform.TransformDirection(rejectDirection).normalized * rejectSpeed + Vector3.up;
+        }
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
         onRejected.Invoke();
         Rejected?.Invoke(s, reason);
     }
 
+<<<<<<< HEAD
     // Empuja el contenedor fuera de la ranura, en la dirección configurada
     void Push(SampleItem s)
     {
@@ -206,6 +266,8 @@ public class DeliveryEvaluator : MonoBehaviour
         rb.linearVelocity = transform.TransformDirection(rejectDirection).normalized * rejectSpeed + Vector3.up;
     }
 
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     List<SampleItem> SamplesInZone()
     {
         var set = new HashSet<SampleItem>();
@@ -245,4 +307,8 @@ public class DeliveryEvaluator : MonoBehaviour
         if (inputZone is BoxCollider box) Gizmos.DrawWireCube(box.center, box.size);
         else if (inputZone is SphereCollider sphere) Gizmos.DrawWireSphere(sphere.center, sphere.radius);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3

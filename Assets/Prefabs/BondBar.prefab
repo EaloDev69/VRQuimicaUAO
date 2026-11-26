@@ -67,7 +67,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BarPlug
   bond: {fileID: 0}
+<<<<<<< HEAD
   needsLeave: 0
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
   Port: {fileID: 0}
   Joint: {fileID: 0}
 --- !u!1 &5405935303090494375
@@ -100,7 +103,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.78243, y: 0.318, z: 4.74079}
+<<<<<<< HEAD
   m_LocalScale: {x: 0.26, y: 0.26, z: 0.26}
+=======
+  m_LocalScale: {x: 1, y: 1, z: 1}
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 813960528205841388}
@@ -300,10 +307,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bond
   plugSearchRadius: 0.05
+<<<<<<< HEAD
   checkInterval: 0.05
   snapTolerance: 0.02
   autoFitPlugs: 1
   tipPadding: 0.002
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 --- !u!1 &5534166726661426349
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +381,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BarPlug
   bond: {fileID: 0}
+<<<<<<< HEAD
   needsLeave: 0
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
   Port: {fileID: 0}
   Joint: {fileID: 0}
 --- !u!1 &6149023006779177523
@@ -401,8 +414,13 @@ Transform:
   m_GameObject: {fileID: 6149023006779177523}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0.045, y: -0.008, z: 0.001}
   m_LocalScale: {x: 0.49, y: 0.032995284, z: 0.028397514}
+=======
+  m_LocalPosition: {x: 0.062, y: -0.008, z: 0.001}
+  m_LocalScale: {x: 0.7557, y: 0.12467268, z: 0.1073}
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5912511865663279788}

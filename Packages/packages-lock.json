@@ -253,6 +253,19 @@
       },
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
+=======
+    "com.unity.xr.oculus": {
+      "version": "4.5.6",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.xr.management": "4.4.0",
+        "com.unity.modules.androidjni": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     "com.unity.xr.openxr": {
       "version": "1.16.1",
       "depth": 0,

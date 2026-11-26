@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+<<<<<<< HEAD
 using UnityEngine.XR.Interaction.Toolkit.Interactors;   // XRI 2.x: borrar esta línea
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 
 public class Atom : MonoBehaviour
 {
@@ -34,7 +37,10 @@ public class Atom : MonoBehaviour
 
     void Awake()
     {
+<<<<<<< HEAD
         PieceBody.Ensure(gameObject);   // guarda el Rigidbody y el agarre del prefab para poder recuperarlos al separarse
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
         if (rend == null) rend = GetComponentInChildren<Renderer>();
         if (rend != null && data != null)
         {
@@ -44,6 +50,7 @@ public class Atom : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     /// Saca este átomo de su molécula: suelta los extremos de las barras que lo tocan.
     /// Las barras se quedan unidas a sus otros átomos.
     public void DetachFromBars(IXRSelectInteractor pinInteractor = null)
@@ -60,6 +67,8 @@ public class Atom : MonoBehaviour
         Molecule.Rebuild(touched.ToArray(), this, pinInteractor);
     }
 
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     public void NotifyBondsChanged()
     {
         Debug.Log($"{data.symbol} ({name}): enlaces {BondCount}/{data.valence}");

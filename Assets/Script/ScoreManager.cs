@@ -46,7 +46,11 @@ public class ScoreManager : MonoBehaviour
     void OnEnable()
     {
         if (evaluator != null) evaluator.Delivered += OnDelivered;
+<<<<<<< HEAD
         if (machine != null) { machine.Failed += OnFailed; machine.Spilled += OnSpilled; machine.LeverFailed += OnLeverFailed; }
+=======
+        if (machine != null) { machine.Failed += OnFailed; machine.Spilled += OnSpilled; }
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
         if (orders != null) orders.OrderPublished += OnOrderPublished;
         Refresh();
     }
@@ -54,7 +58,11 @@ public class ScoreManager : MonoBehaviour
     void OnDisable()
     {
         if (evaluator != null) evaluator.Delivered -= OnDelivered;
+<<<<<<< HEAD
         if (machine != null) { machine.Failed -= OnFailed; machine.Spilled -= OnSpilled; machine.LeverFailed -= OnLeverFailed; }
+=======
+        if (machine != null) { machine.Failed -= OnFailed; machine.Spilled -= OnSpilled; }
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
         if (orders != null) orders.OrderPublished -= OnOrderPublished;
     }
 
@@ -79,6 +87,7 @@ public class ScoreManager : MonoBehaviour
         Refresh();
     }
 
+<<<<<<< HEAD
     void OnLeverFailed(LeverFail _)
     {
         Failures++;
@@ -87,6 +96,8 @@ public class ScoreManager : MonoBehaviour
         Refresh();
     }
 
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     void OnSpilled()
     {
         Spills++;

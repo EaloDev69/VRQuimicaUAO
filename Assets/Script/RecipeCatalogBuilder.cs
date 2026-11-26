@@ -74,6 +74,7 @@ public static class RecipeCatalogBuilder
             fact="El etanol es una cadena de dos carbonos con un oxígeno que lleva su propio hidrógeno." },
     };
 
+<<<<<<< HEAD
     // Presión y temperatura de cada receta (propuesta de balance; se ajusta en las pruebas)
     static readonly Dictionary<string, (LeverLevel pressure, LeverLevel temperature)> Levers =
         new Dictionary<string, (LeverLevel pressure, LeverLevel temperature)>
@@ -88,6 +89,8 @@ public static class RecipeCatalogBuilder
         { "C2H6O", (LeverLevel.Medium, LeverLevel.Low)    },
     };
 
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     [MenuItem("Molecula/Crear recetas y catálogo (GDD)")]
     public static void Build()
     {
@@ -138,7 +141,10 @@ public static class RecipeCatalogBuilder
                                 .ToArray();
             r.basePoints = def.points;
             r.timeLimit = def.time;
+<<<<<<< HEAD
             if (Levers.TryGetValue(def.file, out var lv)) { r.requiredPressure = lv.pressure; r.requiredTemperature = lv.temperature; }
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
             r.sampleColor = Hex(def.hex);
             r.educationalFact = def.fact;       // el Effect Prefab no se toca
             r.InvalidateCache();

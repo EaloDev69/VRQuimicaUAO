@@ -12,8 +12,11 @@ public class OrderScreen : MonoBehaviour
     public TMP_Text formulaText;     // "H₂O"
     public TMP_Text timerText;       // "01:45"
     public TMP_Text stateText;       // "Pulsa Aceptar", "En curso"...
+<<<<<<< HEAD
     public TMP_Text pressureText;    // "Presión: Alta" (opcional)
     public TMP_Text temperatureText; // "Temperatura: Media" (opcional)
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 
     [Header("Barra del temporizador (opcional)")]
     public Transform barFill;        // objeto con pivote en el extremo izquierdo; se escala en X
@@ -32,15 +35,21 @@ public class OrderScreen : MonoBehaviour
         if (o == null)
         {
             Set(titleText, "Sin pedidos"); Set(formulaText, ""); Set(timerText, "--:--"); Set(stateText, "");
+<<<<<<< HEAD
             Set(pressureText, ""); Set(temperatureText, "");
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
             SetBar(0f);
             return;
         }
 
         Set(titleText, o.recipe.displayName);
         Set(formulaText, o.recipe.formula);
+<<<<<<< HEAD
         Set(pressureText, $"Presión: {o.recipe.requiredPressure.Label()}");
         Set(temperatureText, $"Temperatura: {o.recipe.requiredTemperature.Label()}");
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 
         float shown = o.state == OrderState.Waiting ? o.timeLimit : o.timeRemaining;
         int secs = Mathf.CeilToInt(shown);

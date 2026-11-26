@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 using System;
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -6,6 +9,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
+<<<<<<< HEAD
 /// Máquina spawner de átomos (GDD 4.4).
 /// Un botón por elemento deja caer un átomo de ese elemento en la cesta de átomos bajo la boquilla.
 /// Un botón "Borrar" deshace el último átomo entregado; opcionalmente cada elemento tiene su botón de borrado.
@@ -24,6 +28,17 @@ public class AtomSpawner : MonoBehaviour
     [Header("Datos")]
     public Atom atomPrefab;                // prefab genérico: Atom + AtomSocketBuilder + Rigidbody + XRGrabInteractable
     public ElementEntry[] elements;
+=======
+/// Máquina spawner de átomos (GDD 4.4), con el mismo esquema que BarSpawner.
+/// Botones (LabButton), en On Pressed ():
+///   - un botón por elemento  -> AtomSpawner.Spawn (AtomData)  y se arrastra el AtomData como parámetro
+///   - botón Borrar           -> AtomSpawner.DeleteAtoms
+/// Usa un solo prefab de átomo: el AtomData se asigna al instanciar (antes de que corran los Awake).
+public class AtomSpawner : MonoBehaviour
+{
+    [Header("Datos")]
+    public Atom atomPrefab;                // prefab genérico: Atom + AtomSocketBuilder + Rigidbody + XRGrabInteractable
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 
     [Header("Boquilla y cesta")]
     public Transform nozzle;
@@ -50,13 +65,17 @@ public class AtomSpawner : MonoBehaviour
 
     public void SetMaxPieces(int value) => maxPieces = Mathf.Max(0, value);
 
+<<<<<<< HEAD
     // ---------------------------------------------------------------
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     void Awake()
     {
         var h = new GameObject("AtomSpawnHolder");
         h.SetActive(false);
         h.transform.SetParent(transform, false);
         holder = h.transform;
+<<<<<<< HEAD
 
         foreach (var e in elements)
         {
@@ -72,12 +91,25 @@ public class AtomSpawner : MonoBehaviour
     public void Spawn(AtomData data)
     {
         if (data == null) return;
+=======
+    }
+
+    // ---------------------------------------------------------------
+    /// Botón de elemento: On Pressed -> AtomSpawner.Spawn (AtomData), con el AtomData arrastrado en el evento.
+    public void Spawn(AtomData data)
+    {
+        if (data == null) { Debug.LogWarning("[AtomSpawner] Falta el AtomData en el evento On Pressed del botón.", this); return; }
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
         if (!BasketPresent()) { onNoBasket.Invoke(); return; }
         if (AtomsInZone().Count >= maxPieces) { onFull.Invoke(); return; }
 
         // Se instancia bajo un padre inactivo: Awake no corre hasta sacarlo, así Atom y
         // AtomSocketBuilder ya encuentran el AtomData asignado.
+<<<<<<< HEAD
         var atom = Instantiate(atomPrefab, nozzle.position, UnityEngine.Random.rotation, holder);
+=======
+        var atom = Instantiate(atomPrefab, nozzle.position, Random.rotation, holder);
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
         atom.data = data;
         atom.name = data.symbol;
         atom.transform.SetParent(null, true);
@@ -86,7 +118,11 @@ public class AtomSpawner : MonoBehaviour
         onSpawned.Invoke();
     }
 
+<<<<<<< HEAD
     /// Botón "Borrar átomos": deshace el último átomo entregado que siga suelto en la cesta.
+=======
+    /// Botón Borrar: deshace el último átomo entregado que siga suelto en la cesta.
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     public void DeleteAtoms()
     {
         if (!BasketPresent()) { onNoBasket.Invoke(); return; }
@@ -110,7 +146,11 @@ public class AtomSpawner : MonoBehaviour
         if (removed > 0) onDeleted.Invoke(); else onNothingToDelete.Invoke();
     }
 
+<<<<<<< HEAD
     /// Borra un átomo de un elemento concreto (botón de borrado por elemento).
+=======
+    /// Opcional: borra un átomo de un elemento concreto (botón propio con el AtomData como parámetro).
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     public void DeleteElement(AtomData data)
     {
         if (!BasketPresent()) { onNoBasket.Invoke(); return; }
@@ -208,4 +248,8 @@ public class AtomSpawner : MonoBehaviour
         if (basketZone is BoxCollider box) Gizmos.DrawWireCube(box.center, box.size);
         else if (basketZone is SphereCollider sphere) Gizmos.DrawWireSphere(sphere.center, sphere.radius);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3

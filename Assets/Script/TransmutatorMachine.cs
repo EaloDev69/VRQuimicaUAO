@@ -7,15 +7,22 @@ using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
+<<<<<<< HEAD
 public enum LeverFail { Pressure, Temperature }
 
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 /// La Máquina Transmutadora.
 /// Entrada: la molécula (átomos y barras) se mete en el hueco (este objeto debe tener un Collider en modo Trigger).
 /// Salida:
 ///   - Gas:    hace falta una botella (SampleItem tipo Bottle) pegada al socket de gases.
 ///   - Líquido: baja por el pico y llena el vaso (SampleItem tipo Cup) que esté bajo él.
 ///             El tamaño del vaso decide cuánto tarda en llenarse, así nunca se riega líquido.
+<<<<<<< HEAD
 /// Botones (LabButton): Iniciar -> StartReaction, Cancelar -> Cancel.
+=======
+/// Botones (LabButton): Iniciar -> StartReaction, Cancelar -> Cancel, Limpiar -> ClearTable.
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 [RequireComponent(typeof(Collider))]
 public class TransmutatorMachine : MonoBehaviour
 {
@@ -24,6 +31,12 @@ public class TransmutatorMachine : MonoBehaviour
     [Header("Datos")]
     public RecipeCatalog catalog;            // catálogo único de recetas (el mismo de la evaluadora y los pedidos)
 
+<<<<<<< HEAD
+=======
+    [Header("Mesa")]
+    public Collider tableZone;               // zona que limpia "Limpiar mesa"
+
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     [Header("Salida de gases")]
     public XRSocketInteractor gasSocket;     // socket donde se pega la botella
 
@@ -31,6 +44,7 @@ public class TransmutatorMachine : MonoBehaviour
     public Transform spout;                  // pico por donde baja el líquido
     public Collider cupZone;                 // BoxCollider o SphereCollider bajo el pico (donde va el vaso)
 
+<<<<<<< HEAD
     [Header("Palancas de presión y temperatura")]
     public LabLever pressureLever;
     public LabLever temperatureLever;
@@ -47,6 +61,8 @@ public class TransmutatorMachine : MonoBehaviour
     [Tooltip("LineRenderer de 2 puntos: se estira solo del pico al vaso mientras se llena")]
     public LineRenderer liquidStream;
 
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     [Header("Efectos")]
     public GameObject failPofPrefab;         // "pof" de humo de colores (sale por el pico)
     public float effectLifetime = 8f;
@@ -62,8 +78,12 @@ public class TransmutatorMachine : MonoBehaviour
     public UnityEvent onStarted;
     public UnityEvent onPourStarted;         // empieza a salir gas o líquido
     public UnityEvent onSuccess;
+<<<<<<< HEAD
     public UnityEvent onFail;                // molécula o palanca incorrecta: sonido de fallo
     public UnityEvent onBlocked;             // presión y temperatura mal: la máquina no se activa
+=======
+    public UnityEvent onFail;                // molécula incorrecta: "pof"
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     public UnityEvent onCancelled;
     public UnityEvent onNothingInside;
     public UnityEvent onMoleculeHeld;
@@ -74,10 +94,19 @@ public class TransmutatorMachine : MonoBehaviour
     public event Action<RecipeData, SampleItem> Synthesized;
     public event Action<ValidationState> Failed;
     public event Action Spilled;
+<<<<<<< HEAD
     public event Action<LeverFail> LeverFailed;
 
     public MachineState State { get; private set; } = MachineState.Idle;
 
+=======
+
+    public MachineState State { get; private set; } = MachineState.Idle;
+
+    // Átomos dentro del hueco (contador por si un átomo tiene varios colliders dentro)
+    readonly Dictionary<Atom, int> inside = new Dictionary<Atom, int>();
+
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     Coroutine running;
     List<Atom> currentAtoms;
     HashSet<Bond> currentBars;
@@ -89,6 +118,7 @@ public class TransmutatorMachine : MonoBehaviour
     // ---------------------------------------------------------------
     // Hueco de entrada
     // ---------------------------------------------------------------
+<<<<<<< HEAD
     // Un átomo cualquiera dentro del hueco. Se consulta con una superposición física al pulsar Iniciar:
     // es fiable aunque las piezas cambien de cuerpo al unirse o separarse.
     Atom FirstAtomInside()
@@ -120,6 +150,26 @@ public class TransmutatorMachine : MonoBehaviour
             if (a != null) return a;
         }
         return null;
+=======
+    void OnTriggerEnter(Collider other)
+    {
+        var atom = other.GetComponentInParent<Atom>();
+        if (atom == null) return;
+        inside[atom] = inside.TryGetValue(atom, out int n) ? n + 1 : 1;
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        var atom = other.GetComponentInParent<Atom>();
+        if (atom == null || !inside.TryGetValue(atom, out int n)) return;
+        if (n <= 1) inside.Remove(atom); else inside[atom] = n - 1;
+    }
+
+    Atom FirstAtomInside()
+    {
+        foreach (var k in inside.Keys.ToList()) if (k == null) inside.Remove(k);
+        return inside.Keys.FirstOrDefault();
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     }
 
     public bool HasMoleculeInside => FirstAtomInside() != null;
@@ -142,6 +192,7 @@ public class TransmutatorMachine : MonoBehaviour
 
         var state = MoleculeValidator.Validate(graph, catalog.recipes, out var recipe);
 
+<<<<<<< HEAD
         // Palancas: solo se comparan si la molécula es correcta (ya se conoce la receta)
         if (state == ValidationState.Correct && recipe != null)
         {
@@ -158,6 +209,8 @@ public class TransmutatorMachine : MonoBehaviour
             }
         }
 
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
         // Si es correcta, el contenedor tiene que estar listo ANTES de gastar la molécula
         SampleItem container = null;
         if (state == ValidationState.Correct && recipe != null)
@@ -183,6 +236,34 @@ public class TransmutatorMachine : MonoBehaviour
         onCancelled.Invoke();
     }
 
+<<<<<<< HEAD
+=======
+    /// Destruye todo lo suelto en la mesa (no toca lo que está en la mano).
+    public void ClearTable()
+    {
+        if (State == MachineState.Processing || tableZone == null) return;
+
+        var b = tableZone.bounds;
+        var hits = Physics.OverlapBox(b.center, b.extents, tableZone.transform.rotation,
+                                      ~0, QueryTriggerInteraction.Ignore);
+        var atoms = new HashSet<Atom>();
+        foreach (var h in hits)
+        {
+            var a = h.GetComponentInParent<Atom>();
+            if (a != null) atoms.Add(a);
+        }
+        var list = atoms.ToList();
+        var bars = CollectBars(list);
+        foreach (var h in hits)
+        {
+            var bar = h.GetComponentInParent<Bond>();
+            if (bar != null) bars.Add(bar);
+        }
+        if (IsHeld(list, bars)) { onMoleculeHeld.Invoke(); return; }
+        Consume(list, bars);
+    }
+
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     // ---------------------------------------------------------------
     // Proceso
     // ---------------------------------------------------------------
@@ -223,6 +304,7 @@ public class TransmutatorMachine : MonoBehaviour
         onPourStarted.Invoke();
         activeFx = SpawnFx(recipe.effectPrefab, gas ? gasSocket.transform : spout);
 
+<<<<<<< HEAD
         if (!gas && liquidStream != null)
         {
             liquidStream.positionCount = 2;
@@ -231,6 +313,8 @@ public class TransmutatorMachine : MonoBehaviour
             liquidStream.enabled = true;
         }
 
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
         float t = 0f;
         bool spilled = false;
         while (t < duration)
@@ -238,11 +322,14 @@ public class TransmutatorMachine : MonoBehaviour
             if (!IsStillThere(container)) { spilled = true; break; }
             t += Time.deltaTime;
             container.SetFillLevel(t / duration, recipe.sampleColor);
+<<<<<<< HEAD
             if (!gas && liquidStream != null)
             {
                 liquidStream.SetPosition(0, spout.position);
                 liquidStream.SetPosition(1, container.StreamPoint);
             }
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
             yield return null;
         }
 
@@ -271,6 +358,7 @@ public class TransmutatorMachine : MonoBehaviour
         Synthesized?.Invoke(recipe, container);
     }
 
+<<<<<<< HEAD
     // Una palanca mal puesta: la máquina trabaja, suelta un cubo de residuo y suena el fallo
     IEnumerator ProcessLeverFail(LeverFail kind, List<Atom> atoms, HashSet<Bond> bars)
     {
@@ -300,6 +388,8 @@ public class TransmutatorMachine : MonoBehaviour
         LeverFailed?.Invoke(kind);
     }
 
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     // Vuelve a Idle y desbloquea la molécula (fallo, derrame o cancelación)
     void Release()
     {
@@ -396,7 +486,10 @@ public class TransmutatorMachine : MonoBehaviour
     // Deja de emitir y limpia el efecto sin cortarlo de golpe
     void StopFx()
     {
+<<<<<<< HEAD
         if (liquidStream != null) liquidStream.enabled = false;
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
         if (activeFx == null) return;
         foreach (var ps in activeFx.GetComponentsInChildren<ParticleSystem>())
             ps.Stop(true, ParticleSystemStopBehavior.StopEmitting);
@@ -416,24 +509,56 @@ public class TransmutatorMachine : MonoBehaviour
         return bars;
     }
 
+<<<<<<< HEAD
     // Con las piezas unidas en una molécula, el agarre y el bloqueo son de la molécula entera
     static bool IsHeld(List<Atom> atoms, HashSet<Bond> bars)
     {
         foreach (var a in atoms) if (a != null && Molecule.IsPieceHeld(a)) return true;
         foreach (var b in bars) if (b != null && Molecule.IsPieceHeld(b)) return true;
+=======
+    static bool IsHeld(List<Atom> atoms, HashSet<Bond> bars)
+    {
+        foreach (var a in atoms)
+        {
+            var g = a.GetComponent<XRGrabInteractable>();
+            if (g != null && g.isSelected) return true;
+        }
+        foreach (var b in bars)
+        {
+            var g = b.GetComponent<XRGrabInteractable>();
+            if (g != null && g.isSelected) return true;
+        }
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
         return false;
     }
 
     static void SetLocked(List<Atom> atoms, HashSet<Bond> bars, bool locked)
     {
         if (atoms == null) return;
+<<<<<<< HEAD
         foreach (var a in atoms) if (a != null) Molecule.SetPieceLocked(a, locked);
         if (bars == null) return;
         foreach (var b in bars) if (b != null) Molecule.SetPieceLocked(b, locked);
+=======
+        foreach (var a in atoms)
+        {
+            if (a == null) continue;
+            var g = a.GetComponent<XRGrabInteractable>();
+            if (g != null) g.enabled = !locked;
+        }
+        if (bars == null) return;
+        foreach (var b in bars)
+        {
+            if (b == null) continue;
+            var g = b.GetComponent<XRGrabInteractable>();
+            if (g != null) g.enabled = !locked;
+        }
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     }
 
     void Consume(List<Atom> atoms, HashSet<Bond> bars)
     {
+<<<<<<< HEAD
         // Se destruyen las raíces: la de la molécula, o la de cada pieza suelta
         var roots = new HashSet<GameObject>();
         foreach (var b in bars) if (b != null) roots.Add(RootOf(b));
@@ -447,3 +572,14 @@ public class TransmutatorMachine : MonoBehaviour
         return m != null ? m.gameObject : piece.gameObject;
     }
 }
+=======
+        foreach (var b in bars) if (b != null) Destroy(b.gameObject);
+        foreach (var a in atoms)
+        {
+            if (a == null) continue;
+            inside.Remove(a);
+            Destroy(a.gameObject);
+        }
+    }
+}
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3

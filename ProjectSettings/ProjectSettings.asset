@@ -4,7 +4,11 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
+<<<<<<< HEAD
   productGUID: 5a467a65aebe21141939c522a89ab456
+=======
+  productGUID: a62132ee19e770049af2a95f1d1b8784
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -928,10 +932,17 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
+<<<<<<< HEAD
   cloudProjectId: f77f2f5f-b592-4949-9c1d-25b030242799
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: My project (20) 2026-11-23_11-46-57
+=======
+  cloudProjectId: ab8951de-3f90-463e-b237-442676aa7ef7
+  framebufferDepthMemorylessMode: 0
+  qualitySettingsNames: []
+  projectName: My project (20)
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
   organizationId: ealo
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

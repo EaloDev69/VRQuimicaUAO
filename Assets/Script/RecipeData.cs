@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum CompoundCategory { Gas, Liquid, Solid }
 
+<<<<<<< HEAD
 public enum LeverLevel { Low, Medium, High }
 
 public static class LeverLevelExtensions
@@ -19,6 +20,8 @@ public static class LeverLevelExtensions
     }
 }
 
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
 [CreateAssetMenu(menuName = "Molecula/Recipe")]
 public class RecipeData : ScriptableObject
 {
@@ -44,10 +47,13 @@ public class RecipeData : ScriptableObject
     public int basePoints = 100;
     [Tooltip("Tiempo límite del pedido en segundos (propuesta, se ajusta en las pruebas)")]
     public float timeLimit = 120f;
+<<<<<<< HEAD
 
     [Header("Palancas de la máquina")]
     public LeverLevel requiredPressure = LeverLevel.Medium;
     public LeverLevel requiredTemperature = LeverLevel.Medium;
+=======
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
     public GameObject effectPrefab;     // efecto de la máquina (agua, llama, etc.)
     public Color sampleColor = Color.white;
     [TextArea] public string educationalFact;
@@ -89,4 +95,8 @@ public class RecipeData : ScriptableObject
                   $"{BarCounts[0]}, valencias abiertas = {g.OpenValences}, " +
                   $"conectada = {g.IsConnected()}", this);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3

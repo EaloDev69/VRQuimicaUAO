@@ -5,17 +5,30 @@ TagManager:
   serializedVersion: 3
   tags:
   - Basket
+<<<<<<< HEAD
   - BottleCap
+=======
+  - BasketAtoms
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
+<<<<<<< HEAD
   - 
   - Water
   - UI
   - 
   - 
   - 
+=======
+  - Atom
+  - Water
+  - UI
+  - Bar
+  - Piso
+  - Floor
+>>>>>>> 3f517e58c67353504dd60bb8d6a87b6eeba73bd3
   - 
   - 
   - 
