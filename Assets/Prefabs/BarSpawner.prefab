@@ -49,7 +49,7 @@ MonoBehaviour:
   nozzle: {fileID: 8407161624641933022}
   basketZone: {fileID: 2611177391106898844}
   basketTag: Basket
-  maxPieces: 20
+  maxPieces: 8
   deletePerPress: 1
   countText: {fileID: 0}
   onSpawned:
@@ -263,8 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LabButton
   m_InteractionManager: {fileID: 0}
-  m_Colliders:
-  - {fileID: 0}
+  m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
@@ -394,7 +393,7 @@ MonoBehaviour:
   nozzle: {fileID: 8407161624641933022}
   basketZone: {fileID: 2611177391106898844}
   basketTag: Basket
-  maxPieces: 20
+  maxPieces: 8
   deletePerPress: 1
   countText: {fileID: 0}
   onSpawned:
@@ -430,8 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LabButton
   m_InteractionManager: {fileID: 0}
-  m_Colliders:
-  - {fileID: 0}
+  m_Colliders: []
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1

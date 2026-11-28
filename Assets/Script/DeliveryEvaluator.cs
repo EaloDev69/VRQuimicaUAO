@@ -83,6 +83,39 @@ public class DeliveryEvaluator : MonoBehaviour
             if (ignoreUntil.TryGetValue(s, out float until) && Time.time < until) continue;
             Evaluate(s);
         }
+
+        PushOutForeignObjects();
+    }
+
+    // La evaluadora solo recibe SampleItem (botella o vaso). Cualquier otra cosa suelta en la ranura
+    // (átomos, barras, moléculas, tapas, canastas...) se devuelve hacia afuera.
+    readonly Dictionary<Rigidbody, float> foreignUntil = new Dictionary<Rigidbody, float>();
+
+    void PushOutForeignObjects()
+    {
+        foreach (var dead in foreignUntil.Keys.Where(k => k == null).ToList()) foreignUntil.Remove(dead);
+        var seen = new HashSet<Rigidbody>();
+        foreach (var c in OverlapZone())
+        {
+            var rb = c.attachedRigidbody;
+            if (rb == null || rb.isKinematic || !seen.Add(rb)) continue;
+            if (transform.IsChildOf(rb.transform) || rb.transform.IsChildOf(transform.root)) continue;   // la propia máquina
+            if (rb.GetComponentInParent<SampleItem>() != null) continue;
+            if (rb.GetComponent<BottleCap>() != null && IsCapOnBottle(rb)) continue;    // tapa puesta en una botella
+            var g = rb.GetComponent<XRGrabInteractable>();
+            if (g != null && g.isSelected) continue;
+            if (foreignUntil.TryGetValue(rb, out float until) && Time.time < until) continue;
+            foreignUntil[rb] = Time.time + rejectCooldown;
+            rb.linearVelocity = transform.TransformDirection(rejectDirection).normalized * rejectSpeed + Vector3.up;
+            onRejected.Invoke();
+            Debug.Log($"[DeliveryEvaluator] {rb.name} no es una muestra (botella o vaso): se devuelve.", rb);
+        }
+    }
+
+    static bool IsCapOnBottle(Rigidbody cap)
+    {
+        var bc = cap.GetComponent<BottleCap>();
+        return bc != null && bc.IsOn;
     }
 
     void Evaluate(SampleItem s)
@@ -92,10 +125,11 @@ public class DeliveryEvaluator : MonoBehaviour
 
         var cur = orders != null ? orders.Current : null;
         if (cur == null) { Reject(s, RejectReason.NoActiveOrder); return; }
-        if (cur.state == OrderState.Lost) { Reject(s, RejectReason.Expired); return; }        // se acabó el tiempo: no recibe la muestra
+        if (cur.state == OrderState.Lost || cur.timeRemaining <= 0f) { Reject(s, RejectReason.Expired); return; }   // se acabó el tiempo: no recibe la muestra
         if (cur.state != OrderState.Active) { Reject(s, RejectReason.NoActiveOrder); return; }
         if (cur.recipe != s.recipe)                                                           // no es lo pedido: 0 puntos y el pedido se pierde
         {
+            Debug.Log($"[DeliveryEvaluator] Entregaron {s.recipe.displayName} pero el pedido era {cur.recipe.displayName}: el pedido se pierde (0 puntos).", this);
             Reject(s, RejectReason.WrongRecipe);
             orders.Fail(cur);
             return;

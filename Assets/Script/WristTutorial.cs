@@ -9,10 +9,12 @@ using UnityEngine.UI;
 /// Tutorial de la muñeca: 4 pasos tipo minijuego en la zona de acción (arriba) con el texto corto abajo.
 /// Todo son imágenes 2D que se arrastran (TutorialDraggable). Cada paso avanza solo cuando se cumple su condición:
 ///   1. Spawners y canastas: pulsar cada spawner (sale 1 átomo y 1 barra) y llevarlos a su canasta.
-///   2. Enlace con barras: encajar las 2 barras en el átomo central y pegar los 2 átomos en los extremos.
+///   2. Enlace: las 2 barras ya salen del átomo central; solo hay que arrastrar los 2 átomos (esferas) a sus puntas.
+///      (Antes también había que arrastrar las barras, pero con las gafas era incómodo: son delgadas y difíciles de tomar.)
 ///   3. Transmutadora: meter la molécula armada en la entrada; la máquina trabaja y suelta un tarrito.
 ///   4. Evaluadora: llevar el tarrito a la ranura; se entrega, suena la confirmación y aparece el botón Glosario.
 /// Las piezas se crean por código en cada paso: no hace falta preparar prefabs ni imágenes (usa formas de colores).
+/// Arriba de la zona de acción hay un rótulo fijo que aclara que es una representación del laboratorio.
 /// Lo crea WristMenu > Construir UI y lo controla WristMenu (Begin al abrir el tutorial, Stop al salir).
 public class WristTutorial : MonoBehaviour
 {
@@ -23,16 +25,38 @@ public class WristTutorial : MonoBehaviour
     public Button btnGlossary;                           // aparece al terminar el último paso
     [HideInInspector] public float fontScale = 1f;
 
+    [Header("Rótulo de arriba (fijo en todos los pasos)")]
+    public string headerText = "Esto es una representación del laboratorio";
+
     [Header("Textos de abajo (uno por paso)")]
-    [TextArea(1, 3)]
+    [TextArea(1, 4)]
     public string[] stepTexts =
+    {
+        "Pulsa cada spawner y lleva el átomo y la barra a su canasta. En el laboratorio, los spawners solo sueltan piezas si hay una canasta debajo.",
+        "Arrastra cada hidrógeno (H) a la punta libre de su barra. Cada átomo acepta tantas barras como su valencia: H 1, O 2, N 3, C 4.",
+        "Lleva la molécula a la entrada de la Transmutadora. Antes pon un vaso (líquidos) o una botella (gases) en la salida y ajusta presión y temperatura.",
+        "Deja el tarrito en la ranura del enviador. Debe ser la receta del encargo que aceptaste: cuanto más rápido, más puntos."
+    };
+    [TextArea(1, 4)] public string finishText = "¡Tutorial completo! En el Glosario está cada receta con sus átomos, barras, presión y temperatura. Con el gatillo superior del control separas una molécula pieza por pieza.";
+
+    // Textos de la versión anterior: si el componente aún los tiene guardados, se cambian por los nuevos.
+    // (Si los editaste a mano en el Inspector, se respetan los tuyos.)
+    static readonly string[] OldStepTexts =
     {
         "Pulsa cada spawner y arrastra el átomo y la barra a su canasta.",
         "Acerca las barras al átomo central y pega los otros átomos en los extremos.",
         "Arrastra la molécula dentro de la Máquina Transmutadora.",
         "Arrastra el tarrito hacia el enviador para entregarlo."
     };
-    [TextArea(1, 3)] public string finishText = "¡Tutorial completo! Consulta el Glosario para ver cómo armar cada receta.";
+    const string OldFinishText = "¡Tutorial completo! Consulta el Glosario para ver cómo armar cada receta.";
+    static readonly string[] NewStepTexts =
+    {
+        "Pulsa cada spawner y lleva el átomo y la barra a su canasta. En el laboratorio, los spawners solo sueltan piezas si hay una canasta debajo.",
+        "Arrastra cada hidrógeno (H) a la punta libre de su barra. Cada átomo acepta tantas barras como su valencia: H 1, O 2, N 3, C 4.",
+        "Lleva la molécula a la entrada de la Transmutadora. Antes pon un vaso (líquidos) o una botella (gases) en la salida y ajusta presión y temperatura.",
+        "Deja el tarrito en la ranura del enviador. Debe ser la receta del encargo que aceptaste: cuanto más rápido, más puntos."
+    };
+    const string NewFinishText = "¡Tutorial completo! En el Glosario está cada receta con sus átomos, barras, presión y temperatura. Con el gatillo superior del control separas una molécula pieza por pieza.";
 
     [Header("Feedback (conectar sonido, luces)")]
     public UnityEvent onGrab;                            // agarrar una pieza
@@ -78,13 +102,57 @@ public class WristTutorial : MonoBehaviour
     static readonly Color JarLid = new Color(0.25f, 0.30f, 0.35f);
     static readonly Color Ghost = new Color(1f, 1f, 1f, 0.22f);
 
+    void Awake() => UpgradeTexts();
+
+    void UpgradeTexts()
+    {
+        if (stepTexts == null || stepTexts.Length < StepCount) stepTexts = (string[])NewStepTexts.Clone();
+        for (int i = 0; i < StepCount && i < stepTexts.Length; i++)
+            if (Same(stepTexts[i], OldStepTexts[i])) stepTexts[i] = NewStepTexts[i];
+        if (Same(finishText, OldFinishText)) finishText = NewFinishText;
+    }
+
+    static bool Same(string a, string b) => string.Equals((a ?? "").Trim(), b, StringComparison.Ordinal);
+
     // ---------------------------------------------------------------
     // Control (lo llama WristMenu)
     // ---------------------------------------------------------------
     public void Begin()
     {
         Stop();
+        EnsureHeader();
         StartStep(0);
+    }
+
+    // Rótulo fijo arriba de la zona de acción. Se hace un poco de espacio bajando el borde superior de la zona.
+    TMP_Text header;
+    void EnsureHeader()
+    {
+        if (actionZone == null || string.IsNullOrEmpty(headerText)) return;
+        if (header != null) { header.text = headerText; return; }
+
+        var parent = actionZone.parent as RectTransform;
+        if (parent == null) return;
+        float top = actionZone.anchorMax.y, bottom = actionZone.anchorMin.y;
+        float band = (top - bottom) * 0.11f;                         // ~11 % de la zona para el rótulo
+        actionZone.anchorMax = new Vector2(actionZone.anchorMax.x, top - band);
+
+        header = WristUIKit.MakeText(parent, "Rotulo", headerText, 15f, TextAlignmentOptions.Center, fontScale);
+        WristUIKit.Anchor(header.rectTransform, actionZone.anchorMin.x, top - band, actionZone.anchorMax.x, top);
+        header.enableAutoSizing = true;
+        header.fontSizeMin = 9f * fontScale;
+        header.fontSizeMax = 15f * fontScale;
+        header.fontStyle = FontStyles.Italic;
+        header.color = new Color(0.62f, 0.86f, 1f);
+
+        // Franja de fondo detrás del texto (objeto aparte: un texto TMP y una Image no pueden ir en el mismo objeto)
+        var band01 = WristUIKit.NewRect("FondoRotulo", parent);
+        WristUIKit.Anchor(band01, actionZone.anchorMin.x, top - band, actionZone.anchorMax.x, top);
+        var img = band01.gameObject.AddComponent<Image>();
+        img.color = new Color(0.10f, 0.20f, 0.32f, 0.9f);
+        img.raycastTarget = false;
+        band01.SetSiblingIndex(actionZone.GetSiblingIndex());
+        header.transform.SetSiblingIndex(band01.GetSiblingIndex() + 1);
     }
 
     public void Stop()
@@ -210,38 +278,61 @@ public class WristTutorial : MonoBehaviour
         float barX = rO + barL / 2f;                     // centro de cada barra respecto al átomo central
         float hX = rO + barL + rH;                       // centro de cada átomo lateral
 
+        // Las dos barras ya salen del oxígeno (fijas): solo faltan los hidrógenos en sus puntas
+        for (int side = -1; side <= 1; side += 2)
+            Box("Barra", new Vector2(barL, barH), new Vector2(side * barX, oy), BarGray);
         Box("AtomoCentral", new Vector2(2f * rO, 2f * rO), new Vector2(0f, oy), OxygenRed,
             circle: true, label: "O", fontSize: 22f);
 
         for (int side = -1; side <= 1; side += 2)
         {
-            var barGhost = Box("PuertoBarra", new Vector2(barL, barH), new Vector2(side * barX, oy), Ghost);
             var atomGhost = Box("PuertoAtomo", new Vector2(2f * rH, 2f * rH), new Vector2(side * hX, oy), Ghost, circle: true);
-            atomGhost.gameObject.SetActive(false);       // el lugar del átomo aparece cuando su barra ya está puesta
-
-            var atomSlot = AddSlot("atomH", atomGhost.anchoredPosition, atomGhost.sizeDelta, OnBondPiece, false);
-            AddSlot("bar", barGhost.anchoredPosition, barGhost.sizeDelta, d =>
+            StartCoroutine(PulseRoutine(atomGhost));     // el lugar libre late para que se vea dónde va
+            AddSlot("atomH", atomGhost.anchoredPosition, atomGhost.sizeDelta, d =>
             {
-                atomGhost.gameObject.SetActive(true);
-                atomSlot.active = true;
+                atomGhost.gameObject.SetActive(false);   // ya está el hidrógeno: el lugar fantasma se quita
                 OnBondPiece(d);
             });
         }
 
-        // Piezas sueltas abajo: 2 barras y 2 hidrógenos
-        float ly = -0.30f * zh;
-        MakeDraggable(MakeBar(new Vector2(-0.33f * zw, ly)), "bar");
-        MakeDraggable(MakeBar(new Vector2(-0.13f * zw, ly)), "bar");
-        MakeDraggable(Box("Hidrogeno", new Vector2(2f * rH, 2f * rH), new Vector2(0.13f * zw, ly), HydrogenWhite,
-                          circle: true, label: "H", fontSize: 18f, labelColor: DarkText, raycast: true), "atomH");
-        MakeDraggable(Box("Hidrogeno", new Vector2(2f * rH, 2f * rH), new Vector2(0.33f * zw, ly), HydrogenWhite,
-                          circle: true, label: "H", fontSize: 18f, labelColor: DarkText, raycast: true), "atomH");
+        // Los dos hidrógenos sueltos abajo, con zona de agarre grande (cómodo con las gafas)
+        float ly = -0.28f * zh;
+        MakeDraggable(MakeSphere("H", new Vector2(-0.22f * zw, ly)), "atomH");
+        MakeDraggable(MakeSphere("H", new Vector2(0.22f * zw, ly)), "atomH");
     }
 
     void OnBondPiece(TutorialDraggable d)
     {
         filled++;
-        if (filled >= 4) CompleteStep();                 // 2 barras + 2 átomos = molécula armada
+        if (filled >= 2) CompleteStep();                 // los 2 hidrógenos en sus barras = molécula armada
+    }
+
+    // Esfera de hidrógeno dentro de un contenedor transparente más grande: se agarra aunque no se le atine al centro
+    RectTransform MakeSphere(string symbol, Vector2 pos)
+    {
+        var root = WristUIKit.NewRect("Hidrogeno", actionZone);
+        WristUIKit.Center(root, new Vector2(2f * rH + 0.6f * u, 2f * rH + 0.6f * u), pos);
+        var hit = root.gameObject.AddComponent<Image>();
+        hit.color = new Color(0f, 0f, 0f, 0f);
+        hit.raycastTarget = true;
+        Box("Visual", new Vector2(2f * rH, 2f * rH), Vector2.zero, HydrogenWhite,
+            circle: true, label: symbol, fontSize: 18f, labelColor: DarkText, parent: root);
+        return root;
+    }
+
+    // Late suavemente mientras el lugar esté vacío
+    IEnumerator PulseRoutine(RectTransform r)
+    {
+        var img = r != null ? r.GetComponent<Image>() : null;
+        float t = 0f;
+        while (r != null && img != null && r.gameObject.activeSelf)
+        {
+            t += Time.deltaTime;
+            float k = 0.5f + 0.5f * Mathf.Sin(t * 4f);
+            r.localScale = Vector3.one * (1f + 0.08f * k);
+            img.color = new Color(1f, 1f, 1f, 0.15f + 0.2f * k);
+            yield return null;
+        }
     }
 
     // ---------------------------------------------------------------

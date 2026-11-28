@@ -103,14 +103,29 @@ public class BarSpawner : MonoBehaviour
         return false;
     }
 
+    bool tagWarningShown;
+
+    // La cesta se reconoce por su tag; si el tag no existe o la cesta no lo tiene puesto,
+    // se reconoce por el nombre ("Canasta", "Cesta" o "Basket"), para que el spawner no quede bloqueado.
     bool HasTag(GameObject go)
     {
-        try { return go.CompareTag(basketTag); }
+        try { if (go.CompareTag(basketTag)) return true; }
         catch (UnityException)
         {
-            Debug.LogError($"[BarSpawner] El tag \"{basketTag}\" no existe. Créalo en Edit > Project Settings > Tags and Layers.", this);
-            return false;
+            if (!tagWarningShown)
+            {
+                tagWarningShown = true;
+                Debug.LogWarning($"[BarSpawner] El tag \"{basketTag}\" no existe; la cesta se reconoce por su nombre (Canasta / Cesta / Basket).", this);
+            }
         }
+        return LooksLikeBasket(go.transform) || LooksLikeBasket(go.transform.root);
+    }
+
+    static bool LooksLikeBasket(Transform t)
+    {
+        if (t == null) return false;
+        string n = t.name.ToLowerInvariant();
+        return n.Contains("canasta") || n.Contains("cesta") || n.Contains("basket");
     }
 
     List<Bond> BarsInZone()

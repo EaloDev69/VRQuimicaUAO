@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class Atom : MonoBehaviour
 {
@@ -33,6 +35,10 @@ public class Atom : MonoBehaviour
 
     void Awake()
     {
+        var body = GetComponent<Rigidbody>();
+        if (body != null) body.solverIterations = Mathf.Max(body.solverIterations, 20);   // uniones más firmes
+
+
         if (rend == null) rend = GetComponentInChildren<Renderer>();
         if (rend != null && data != null)
         {
@@ -41,6 +47,8 @@ public class Atom : MonoBehaviour
             if (mat.HasProperty("_Color"))     mat.SetColor("_Color", data.color);
         }
     }
+
+    // La molécula como una sola pieza ahora la maneja Molecule (jerarquía con raíz en la primera barra).
 
     public void NotifyBondsChanged()
     {

@@ -63,6 +63,14 @@ public class GestorEncargosVR : MonoBehaviour
         ActualizarInterfaz();
     }
 
+    // Mientras se ve el encargo en curso, el texto de tiempo muestra la cuenta regresiva
+    void Update()
+    {
+        if (textoTiempo == null || encargoEnCurso == null || orders == null || orders.Current == null) return;
+        if (encargos.Count == 0 || encargos[indiceActual] != encargoEnCurso) return;
+        textoTiempo.text = Mathf.CeilToInt(Mathf.Max(0f, orders.Current.timeRemaining)) + " s";
+    }
+
     void OnDestroy()
     {
         if (orders == null) return;

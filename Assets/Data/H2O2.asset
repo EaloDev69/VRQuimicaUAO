@@ -26,10 +26,8 @@ MonoBehaviour:
     b: 1
   - a: 0
     b: 2
-  - a: 0
+  - a: 1
     b: 3
-  - a: 0
-    b: 4
   basePoints: 150
   timeLimit: 150
   effectPrefab: {fileID: 0}

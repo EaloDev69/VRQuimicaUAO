@@ -6,10 +6,16 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables; // XRI 2.x: borrar esta 
 [RequireComponent(typeof(Rigidbody))]
 public class Bond : MonoBehaviour
 {
+    // Para el monitor de pruebas: cada vez que una punta de barra se une o se separa de un átomo
+    public static event System.Action<Bond, Atom> AnyAttached;
+    public static event System.Action<Bond> AnyDetached;
+
     public float plugSearchRadius = 0.06f;
     public float checkInterval = 0.05f;
     [Tooltip("Si ambas piezas están sostenidas, solo se enlaza si la separación es menor a esto")]
     public float snapTolerance = 0.02f;
+    [Tooltip("Átomo en una mano y barra en la otra: distancia a la que se enlazan")]
+    public float heldSnapDistance = 0.07f;
 
     [Header("Ajuste automático a la malla")]
     public bool autoFitPlugs = true;
@@ -75,8 +81,11 @@ public class Bond : MonoBehaviour
 
         public void Move(Vector3 delta)
         {
-            foreach (var a in atoms) Shift(a.transform, a.GetComponent<Rigidbody>(), delta);
-            foreach (var b in bars) Shift(b.transform, b.rb, delta);
+            // Solo las piezas de nivel superior: las hijas de una molécula se mueven con su raíz
+            var all = new List<Transform>();
+            foreach (var a in atoms) all.Add(a.transform);
+            foreach (var b in bars) all.Add(b.transform);
+            foreach (var t in Molecule.TopLevel(all)) Shift(t, t.GetComponent<Rigidbody>(), delta);
         }
 
         static void Shift(Transform t, Rigidbody body, Vector3 delta)
@@ -101,9 +110,12 @@ public class Bond : MonoBehaviour
         if (autoFitPlugs) FitPlugsToMesh();
 
         rb = GetComponent<Rigidbody>();
+        rb.maxDepenetrationVelocity = 1f;
+        rb.solverIterations = Mathf.Max(rb.solverIterations, 20);   // uniones más firmes   // si aparece encimada con otra barra, se separa suave (no sale disparada)
         grab = GetComponent<XRGrabInteractable>();
         // Agarrar la barra la desengancha de los átomos
-        grab.selectEntered.AddListener(_ => DetachAll());
+        // (Antes agarrar la barra la soltaba de sus átomos. Ahora la molécula es una sola pieza y se separa
+        //  con el gatillo superior del control: ver Molecule.)
     }
 
     // Mide la malla de la barra, detecta su eje largo y pone los plugs justo en las puntas
@@ -166,6 +178,10 @@ public class Bond : MonoBehaviour
             if (port == null) { plug.needsLeave = false; continue; }  // ya se alejó
             if (plug.needsLeave) continue;                            // espera a alejarse
 
+            // Solo se arma a propósito: la barra o el átomo tienen que estar en la mano.
+            // (Así las piezas que están sueltas juntas en una canasta no se pegan solas.)
+            if (!new Cluster(null, this).IsHeld() && !new Cluster(port.Owner, null).IsHeld()) continue;
+
             if (TryAttach(plug, port))
                 Debug.Log($"[Bond] {plug.name} -> {port.Owner.name}: ENLAZADO");
         }
@@ -193,10 +209,17 @@ public class Bond : MonoBehaviour
         bool atomHeld = atomCluster.IsHeld();
         bool barHeld = barCluster.IsHeld();
 
-        if (sameCluster || (atomHeld && barHeld))
+        if (sameCluster)
         {
-            // No se puede mover nada: solo enlaza si ya están prácticamente en su sitio
+            // Cierre de anillo: no se puede mover nada, solo enlaza si ya están prácticamente en su sitio
             if (gap > snapTolerance) return false;
+        }
+        else if (atomHeld && barHeld)
+        {
+            // Átomo en una mano y barra en la otra: basta con acercarlas. La unión se crea ya alineada;
+            // al soltar cualquiera de las dos, la física la lleva a su sitio.
+            if (gap > heldSnapDistance) return false;
+            barCluster.Move(atom.transform.position - target);
         }
         else if (!atomHeld)
         {
@@ -210,11 +233,8 @@ public class Bond : MonoBehaviour
         port.transform.position = plug.transform.position;
         Physics.SyncTransforms();
 
-        var joint = gameObject.AddComponent<FixedJoint>();
-        joint.connectedBody = atom.GetComponent<Rigidbody>();
-        joint.enableCollision = false;
-
-        plug.Port = port; plug.Joint = joint; port.Plug = plug;
+        // Unión fija por jerarquía: la molécula (Molecule) hace a esta pieza hija de su raíz. No hace falta joint.
+        plug.Port = port; plug.Joint = null; port.Plug = plug;
         IgnoreWith(atom, true);
         IgnoreBarsAt(atom, true);
 
@@ -225,7 +245,30 @@ public class Bond : MonoBehaviour
             AtomB.NotifyBondsChanged();
         }
         atom.NotifyBondsChanged();
+        Molecule.OnLinked(this, plug, atom);
+        AnyAttached?.Invoke(this, atom);
         return true;
+    }
+
+    /// Suelta UNA punta de la barra de su átomo (la usa Molecule para separar pieza por pieza)
+    public void DetachPlug(BarPlug p)
+    {
+        if (p == null || p.IsFree) return;
+        bool wasComplete = IsComplete;
+        var other = p == PlugA ? PlugB : PlugA;
+        var atom = p.Port.Owner;
+        if (p.Joint != null) Destroy(p.Joint);
+        p.Port.Plug = null; p.Port = null; p.Joint = null;
+        p.needsLeave = true;                     // no reenganchar hasta alejarse
+        IgnoreWith(atom, false);
+        IgnoreBarsAt(atom, false);
+        if (wasComplete)
+        {
+            atom.Bars.Remove(this);
+            if (other.Port != null) { other.Port.Owner.Bars.Remove(this); other.Port.Owner.NotifyBondsChanged(); }
+        }
+        atom.NotifyBondsChanged();
+        AnyDetached?.Invoke(this);
     }
 
     public void DetachAll()
@@ -246,6 +289,7 @@ public class Bond : MonoBehaviour
         if (complete) { a.Bars.Remove(this); b.Bars.Remove(this); }
         if (a != null) a.NotifyBondsChanged();
         if (b != null) b.NotifyBondsChanged();
+        if (a != null || b != null) AnyDetached?.Invoke(this);
     }
 
     // Las barras que comparten átomo no deben colisionar entre sí

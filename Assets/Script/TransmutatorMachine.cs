@@ -426,18 +426,20 @@ public class TransmutatorMachine : MonoBehaviour
         if (atoms == null) return;
         foreach (var a in atoms)
         {
-            if (a == null) continue;
+            if (a == null || IsMoleculeChild(a.transform)) continue;   // las piezas hijas no tienen agarre propio
             var g = a.GetComponent<XRGrabInteractable>();
             if (g != null) g.enabled = !locked;
         }
         if (bars == null) return;
         foreach (var b in bars)
         {
-            if (b == null) continue;
+            if (b == null || IsMoleculeChild(b.transform)) continue;
             var g = b.GetComponent<XRGrabInteractable>();
             if (g != null) g.enabled = !locked;
         }
     }
+
+    static bool IsMoleculeChild(Transform t) => t.parent != null && t.parent.GetComponent<Molecule>() != null;
 
     void Consume(List<Atom> atoms, HashSet<Bond> bars)
     {

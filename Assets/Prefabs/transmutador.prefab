@@ -608,7 +608,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3423,7 +3423,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5032,7 +5032,7 @@ MonoBehaviour:
   temperatureLever: {fileID: 5968450899885961558}
   junkSpawnPoint: {fileID: 2986340841344040550}
   pressureFailCube: {fileID: 5315655847922819697, guid: d5d6da7bc9c1c344fb84608c8acd5a52, type: 3}
-  temperatureFailCube: {fileID: 0}
+  temperatureFailCube: {fileID: 6416825088071710380, guid: 75cebdb761f32b24581dac1b3abd980d, type: 3}
   junkLifetime: 15
   consumeMoleculeOnLeverFail: 1
   liquidStream: {fileID: 6389566940678950393}

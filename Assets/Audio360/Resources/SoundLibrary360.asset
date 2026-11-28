@@ -1,0 +1,564 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18aa607e527beadd589ec9aaffaa9aff, type: 3}
+  m_Name: SoundLibrary360
+  m_EditorClassIdentifier: Assembly-CSharp::SoundLibrary360
+  musicBase: {fileID: 8300000, guid: 56e5b04594eda0bb724abdfbf3c8e313, type: 3}
+  musicRhythm: {fileID: 8300000, guid: 99a3203af49de988d69b54b3febb2aa4, type: 3}
+  musicVolume: 0.35
+  musicGroup: {fileID: 0}
+  sfxGroup: {fileID: 0}
+  uiGroup: {fileID: 0}
+  entries:
+  - id: 0
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 1664f8b286f915760a546869637b73a1, type: 3}
+    - {fileID: 8300000, guid: 7a86a6100835aacbbfd95d11f8ccc3de, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 0.95, y: 1.05}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 4
+    cooldown: 0.05
+  - id: 1
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 9a308ca139f3199c0ab154b215ee27f5, type: 3}
+    - {fileID: 8300000, guid: 27506689a987c2466727c2f68f8f0582, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 0.85, y: 0.95}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 4
+    cooldown: 0.05
+  - id: 2
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 7a86a6100835aacbbfd95d11f8ccc3de, type: 3}
+    bus: 1
+    volume: 0.45
+    pitchRange: {x: 1.15, y: 1.25}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 3
+    cooldown: 0.05
+  - id: 3
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 469aa991fbaf31f5955cc40a62233a3c, type: 3}
+    bus: 1
+    volume: 0.45
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 2
+    cooldown: 0.2
+  - id: 4
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 43be8ea6f5ed336f791c476ac9181830, type: 3}
+    bus: 1
+    volume: 0.45
+    pitchRange: {x: 0.9, y: 0.9}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 2
+    cooldown: 0.2
+  - id: 5
+    key: 
+    clips:
+    - {fileID: 8300000, guid: bb43ab69ca8894e3661527cf6443dca5, type: 3}
+    bus: 1
+    volume: 0.5
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 2
+    cooldown: 0.1
+  - id: 6
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 99f2c7b0c4801d69d90e90c79f2b6223, type: 3}
+    bus: 1
+    volume: 0.6
+    pitchRange: {x: 1, y: 1}
+    spatial: 0
+    minDistance: 0.4
+    maxDistance: 10
+    cooldown: 0.5
+  - id: 7
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 07afe633432e356d774ba2dff252f5a4, type: 3}
+    - {fileID: 8300000, guid: 626be5625187bafab33e5dba27739d1d, type: 3}
+    - {fileID: 8300000, guid: 39bb52399149e7449666daacc7380b4a, type: 3}
+    bus: 0
+    volume: 0.4
+    pitchRange: {x: 0.9, y: 1.1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 3
+    cooldown: 0.05
+  - id: 8
+    key: 
+    clips:
+    - {fileID: 8300000, guid: d463e22ead228d1dbc76fd49d629362c, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 0.97, y: 1.03}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 3
+    cooldown: 0.04
+  - id: 8
+    key: H
+    clips:
+    - {fileID: 8300000, guid: d8f83c7882ff39d803c4a60739280ad6, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 0.97, y: 1.03}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 3
+    cooldown: 0.04
+  - id: 8
+    key: O
+    clips:
+    - {fileID: 8300000, guid: 33358a0020c2a0093ed88e278c60d175, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 0.97, y: 1.03}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 3
+    cooldown: 0.04
+  - id: 8
+    key: C
+    clips:
+    - {fileID: 8300000, guid: 9a308ca139f3199c0ab154b215ee27f5, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 0.97, y: 1.03}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 3
+    cooldown: 0.04
+  - id: 8
+    key: N
+    clips:
+    - {fileID: 8300000, guid: d4164f55dde851c582e9b170b6fd2ae0, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 0.97, y: 1.03}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 3
+    cooldown: 0.04
+  - id: 8
+    key: Cl
+    clips:
+    - {fileID: 8300000, guid: e920b42d0c4c425d1a4b592f740101f6, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 0.97, y: 1.03}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 3
+    cooldown: 0.04
+  - id: 8
+    key: Si
+    clips:
+    - {fileID: 8300000, guid: 27506689a987c2466727c2f68f8f0582, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 0.97, y: 1.03}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 3
+    cooldown: 0.04
+  - id: 8
+    key: F
+    clips:
+    - {fileID: 8300000, guid: 6560f6ab93be080c9fee0f287d860c7c, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 0.97, y: 1.03}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 3
+    cooldown: 0.04
+  - id: 8
+    key: Br
+    clips:
+    - {fileID: 8300000, guid: 1441167d801494d3492848121c77aa79, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 0.97, y: 1.03}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 3
+    cooldown: 0.04
+  - id: 8
+    key: S
+    clips:
+    - {fileID: 8300000, guid: 8da58510dc3faadf51e9799396938587, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 0.97, y: 1.03}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 3
+    cooldown: 0.04
+  - id: 8
+    key: P
+    clips:
+    - {fileID: 8300000, guid: 2b00665a1b208b926cde9022bf9756c9, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 0.97, y: 1.03}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 3
+    cooldown: 0.04
+  - id: 9
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 1ae8cad60e18606f481f12f060e5040f, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 0.95, y: 1.05}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 6
+    cooldown: 0.05
+  - id: 10
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 940641e531f36f51b931a2a3841d6561, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 6
+    cooldown: 0.05
+  - id: 11
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 1243b5d112089ba7d019405329ac1254, type: 3}
+    bus: 0
+    volume: 0.55
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 5
+    cooldown: 0.2
+  - id: 12
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 9bac2f20893b0476ddc02db136ce51f8, type: 3}
+    bus: 0
+    volume: 0.45
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 7
+    cooldown: 0
+  - id: 13
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 4ebda7f3a8ae7cf789365b588b0a4f90, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.2
+  - id: 14
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 16e2db4209f3fcd9a45d70b9b0a801b2, type: 3}
+    bus: 0
+    volume: 0.5
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 6
+    cooldown: 0
+  - id: 15
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 2824f34eeae7033a01d224ca1bbb95d7, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 10
+    cooldown: 0.2
+  - id: 16
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 5137ed2e739b51a97c0f531db69d7990, type: 3}
+    bus: 0
+    volume: 0.8
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 10
+    cooldown: 0.2
+  - id: 17
+    key: 
+    clips:
+    - {fileID: 8300000, guid: dbf6fe752f5dd21411a3eb58548b35c0, type: 3}
+    bus: 0
+    volume: 0.6
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 6
+    cooldown: 0.3
+  - id: 18
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 3c9a35468cd24b9abc5b69dfc6139de2, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 6
+    cooldown: 0.2
+  - id: 19
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 5687e50062bda0141001c07aed1deec3, type: 3}
+    bus: 0
+    volume: 0.8
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 12
+    cooldown: 0.3
+  - id: 20
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 0e3e04dd02e8c8ac29e4240085b1f413, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 10
+    cooldown: 0.2
+  - id: 21
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 998999760f116f1cfda29ba2a5208f02, type: 3}
+    bus: 0
+    volume: 0.8
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 14
+    cooldown: 1.0
+  - id: 22
+    key: 
+    clips:
+    - {fileID: 8300000, guid: d245e50c3897b058b6e0feb268171c92, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 12
+    cooldown: 0.5
+  - id: 23
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 5b3a27d1a2688b83aafbaccc8d2e5aa2, type: 3}
+    bus: 0
+    volume: 0.5
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.03
+  - id: 24
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 5e523543a72df347812b8db0785968f4, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 10
+    cooldown: 0.2
+  - id: 25
+    key: 
+    clips:
+    - {fileID: 8300000, guid: b5b6b496c873f8c107dde244d049d5f6, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.2
+  - id: 27
+    key: 
+    clips:
+    - {fileID: 8300000, guid: 6dee60e4c88ad486dfc56d1267bd0f5e, type: 3}
+    bus: 1
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 0
+    minDistance: 0.4
+    maxDistance: 10
+    cooldown: 1.0
+  - id: 26
+    key: H2O
+    clips:
+    - {fileID: 8300000, guid: 6a323f164a7d9a1f5517280c47b55a97, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.2
+  - id: 26
+    key: HCL
+    clips:
+    - {fileID: 8300000, guid: bb9851e67b055fe719f96640ed849f03, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.2
+  - id: 26
+    key: NH3
+    clips:
+    - {fileID: 8300000, guid: c75656d21621ceb75e671214d703b922, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.2
+  - id: 26
+    key: CH4
+    clips:
+    - {fileID: 8300000, guid: 055ea46532b61784da39c67dd1a084cd, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.2
+  - id: 26
+    key: SIH4
+    clips:
+    - {fileID: 8300000, guid: b5cf06be059e43332b3d6aeb75e4e9ad, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.2
+  - id: 26
+    key: C2H6O
+    clips:
+    - {fileID: 8300000, guid: d1cafe5405c965e44ec393124f13b5a6, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.2
+  - id: 26
+    key: C6H12O6
+    clips:
+    - {fileID: 8300000, guid: cfc34705cdf34f152942092f7ff80235, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.2
+  - id: 26
+    key: O2
+    clips:
+    - {fileID: 8300000, guid: 90ab65337010c3c652617811098a21c7, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.2
+  - id: 26
+    key: CO2
+    clips:
+    - {fileID: 8300000, guid: 2e59221706e6b9a30da0fa8b52424a07, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.2
+  - id: 26
+    key: N2
+    clips:
+    - {fileID: 8300000, guid: 73ff1d9d5798b36c1de99799c386474e, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.2
+  - id: 26
+    key: H2O2
+    clips:
+    - {fileID: 8300000, guid: 2e59221706e6b9a30da0fa8b52424a07, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.2
+  - id: 26
+    key: CH3CL
+    clips:
+    - {fileID: 8300000, guid: bb9851e67b055fe719f96640ed849f03, type: 3}
+    bus: 0
+    volume: 0.7
+    pitchRange: {x: 1, y: 1}
+    spatial: 1
+    minDistance: 0.4
+    maxDistance: 8
+    cooldown: 0.2

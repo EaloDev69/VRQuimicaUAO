@@ -58,14 +58,36 @@ public class AtomSpawner : MonoBehaviour
         h.transform.SetParent(transform, false);
         holder = h.transform;
 
+        if (elements == null) return;
+
+        // Un mismo botón de borrar puesto en varios elementos es el botón "Borrar" general:
+        // se conecta una sola vez a DeleteAtoms (antes borraba un átomo de cada elemento por pulsación).
+        var deleteUses = new Dictionary<LabButton, int>();
+        foreach (var e in elements)
+            if (e != null && e.data != null && e.deleteButton != null)
+                deleteUses[e.deleteButton] = deleteUses.TryGetValue(e.deleteButton, out int n) ? n + 1 : 1;
+
+        var wiredDelete = new HashSet<LabButton>();
         foreach (var e in elements)
         {
             if (e == null || e.data == null) continue;
             var entry = e;     // copia para el closure
             if (entry.label != null) entry.label.text = entry.data.symbol;
-            if (entry.spawnButton != null) entry.spawnButton.onPressed.AddListener(() => Spawn(entry.data));
-            if (entry.deleteButton != null) entry.deleteButton.onPressed.AddListener(() => DeleteElement(entry.data));
+            // Si el botón ya tiene en el inspector una llamada a Spawn de este spawner, no se conecta otra vez
+            // (si no, cada pulsación soltaría dos átomos)
+            if (entry.spawnButton != null && !CallsMe(entry.spawnButton.onPressed, "Spawn"))
+                entry.spawnButton.onPressed.AddListener(() => Spawn(entry.data));
+            if (entry.deleteButton == null || !wiredDelete.Add(entry.deleteButton)) continue;
+            if (deleteUses[entry.deleteButton] > 1) entry.deleteButton.onPressed.AddListener(DeleteAtoms);
+            else entry.deleteButton.onPressed.AddListener(() => DeleteElement(entry.data));
         }
+    }
+
+    bool CallsMe(UnityEvent e, string method)
+    {
+        for (int i = 0; i < e.GetPersistentEventCount(); i++)
+            if (e.GetPersistentTarget(i) == this && e.GetPersistentMethodName(i) == method) return true;
+        return false;
     }
 
     // ---------------------------------------------------------------
@@ -170,14 +192,29 @@ public class AtomSpawner : MonoBehaviour
         return false;
     }
 
+    bool tagWarningShown;
+
+    // La cesta se reconoce por su tag; si el tag no existe o la cesta no lo tiene puesto,
+    // se reconoce por el nombre ("Canasta", "Cesta" o "Basket"), para que el spawner no quede bloqueado.
     bool HasTag(GameObject go)
     {
-        try { return go.CompareTag(basketTag); }
+        try { if (go.CompareTag(basketTag)) return true; }
         catch (UnityException)
         {
-            Debug.LogError($"[AtomSpawner] El tag \"{basketTag}\" no existe. Créalo en Edit > Project Settings > Tags and Layers.", this);
-            return false;
+            if (!tagWarningShown)
+            {
+                tagWarningShown = true;
+                Debug.LogWarning($"[AtomSpawner] El tag \"{basketTag}\" no existe; la cesta se reconoce por su nombre (Canasta / Cesta / Basket).", this);
+            }
         }
+        return LooksLikeBasket(go.transform) || LooksLikeBasket(go.transform.root);
+    }
+
+    static bool LooksLikeBasket(Transform t)
+    {
+        if (t == null) return false;
+        string n = t.name.ToLowerInvariant();
+        return n.Contains("canasta") || n.Contains("cesta") || n.Contains("basket");
     }
 
     List<Atom> AtomsInZone()

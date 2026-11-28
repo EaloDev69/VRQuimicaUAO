@@ -6,12 +6,15 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;   // XRI 2.x: borrar esta 
 public enum SocketFilter
 {
     BottleOnly,    // solo acepta botellas (SampleItem con Kind = Bottle): socket de gases de la máquina
-    Tag            // solo acepta objetos con el tag indicado: socket de la tapa en la boca de la botella
+    Tag,           // solo acepta objetos con el tag indicado: socket de la tapa en la boca de la botella
+    BottleCapOnly, // solo acepta tapas (objetos con BottleCap). No necesita tags
+    CupOnly        // solo acepta vasos (SampleItem con Kind = Cup): socket del vaso bajo el pico de la máquina
 }
 
 /// Socket único para todo el proyecto: es un XRSocketInteractor que solo acepta lo que toca.
 ///  - En la máquina (GasSocket):      Filter = BottleOnly
 ///  - En la botella (CapSocket):      Filter = Tag, Required Tag = BottleCap (el tag de la tapa)
+///  - Bajo el pico (CupSocket):       Filter = CupOnly (lo crea CupZoneSocket al dar Play)
 /// Sirve de socket de la tapa y de la botella sin usar capas de interacción.
 public class FilteredSocket : XRSocketInteractor
 {
@@ -35,6 +38,13 @@ public class FilteredSocket : XRSocketInteractor
             case SocketFilter.BottleOnly:
                 var s = t.GetComponentInParent<SampleItem>();
                 return s != null && s.kind == ContainerKind.Bottle;
+
+            case SocketFilter.CupOnly:
+                var cup = t.GetComponentInParent<SampleItem>();
+                return cup != null && cup.kind == ContainerKind.Cup;
+
+            case SocketFilter.BottleCapOnly:
+                return t.GetComponentInParent<BottleCap>() != null;
 
             case SocketFilter.Tag:
                 try { return t.gameObject.CompareTag(requiredTag); }

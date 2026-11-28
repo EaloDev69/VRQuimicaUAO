@@ -8,6 +8,9 @@ public class LevelStarter : MonoBehaviour
 
     void Start()
     {
+        // En modo manual los encargos los acepta el GestorEncargosVR: la cola por niveles no se usa
+        // (si arrancara, dejaría un pedido fantasma "en espera" como pedido actual).
+        if (orders == null || orders.manualOrders) { enabled = false; return; }
         orders.LevelCompleted += OnLevelCompleted;
         orders.StartLevel(startLevel);
     }

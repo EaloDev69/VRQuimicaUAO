@@ -35,6 +35,12 @@ public class WristMenu : MonoBehaviour
     public UnityEvent onTutorialOpened;
     public UnityEvent onGlossaryOpened;
     public UnityEvent onTutorialFinished;        // se llama al completar el último paso del tutorial
+    public UnityEvent onMenuClosed;              // botón X: se cierra la interfaz
+
+    [Header("Cerrar")]
+    [Tooltip("Lo que se oculta con el botón X. Vacío = este Canvas. Se vuelve a abrir girando la muñeca hacia la cara")]
+    public GameObject closeTarget;
+    public Button btnClose;                      // si está vacío se crea solo (esquina superior derecha)
 
     [Header("Referencias (las crea 'Construir UI')")]
     public GameObject mainPage;
@@ -59,6 +65,8 @@ public class WristMenu : MonoBehaviour
             return;
         }
 
+        EnsureCloseButton();
+        Wire(btnClose, CloseMenu);
         Wire(btnTutorial, OpenTutorial);
         Wire(btnGlossary, OpenGlossary);
         Wire(btnTutorialBack, OpenMain);
@@ -74,6 +82,30 @@ public class WristMenu : MonoBehaviour
     }
 
     static void Wire(Button b, UnityAction action) { if (b != null) b.onClick.AddListener(action); }
+
+    /// Botón X: oculta la interfaz de la muñeca (vuelve a aparecer con el gesto de mirar la muñeca)
+    public void CloseMenu()
+    {
+        if (tutorial != null) tutorial.Stop();
+        onMenuClosed.Invoke();
+        (closeTarget != null ? closeTarget : gameObject).SetActive(false);
+    }
+
+    // Botón X arriba a la derecha, por encima de todas las páginas (se crea si el Canvas ya estaba construido sin él)
+    void EnsureCloseButton()
+    {
+        if (btnClose != null) return;
+        var root = transform.Find("WristUI");
+        if (root == null) return;
+        var existing = root.Find("BtnCerrar");
+        if (existing != null) { btnClose = existing.GetComponent<Button>(); return; }
+
+        var rect = (RectTransform)transform;
+        float fs = fontScale > 0f ? fontScale : Mathf.Min(rect.rect.width / 400f, rect.rect.height / 520f);
+        btnClose = WristUIKit.MakeButton(root, "BtnCerrar", "X", new Color(0.75f, 0.22f, 0.22f, 1f), 26, fs);
+        WristUIKit.Place(btnClose, 0.86f, 0.925f, 0.985f, 0.995f);
+        btnClose.transform.SetAsLastSibling();           // encima de las páginas
+    }
 
     public void OpenMain()
     {
@@ -312,6 +344,10 @@ public class WristMenu : MonoBehaviour
 
         mainPage = main; tutorialPage = tut; glossaryPage = gloss;
         tut.SetActive(false); gloss.SetActive(false);
+
+        // ----- Botón X para cerrar la interfaz (encima de todas las páginas) -----
+        btnClose = WristUIKit.Place(MakeBtn(root, "BtnCerrar", "X", new Color(0.75f, 0.22f, 0.22f, 1f), 26), 0.86f, 0.925f, 0.985f, 0.995f);
+        btnClose.transform.SetAsLastSibling();
 
 #if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(this);

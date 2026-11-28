@@ -113,8 +113,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 7522062867695346813}
   - component: {fileID: 7768769566276668005}
   - component: {fileID: 8556275704125406477}
+  - component: {fileID: 5170000000000000003}
   m_Layer: 0
   m_Name: CAP.004
   m_TagString: Untagged
@@ -232,8 +233,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -244,7 +245,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970820492525402558}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
@@ -444,6 +445,7 @@ GameObject:
   - component: {fileID: 1334613693695578139}
   - component: {fileID: 5055920492366461906}
   - component: {fileID: 4478063386821579067}
+  - component: {fileID: 5170000000000000001}
   m_Layer: 0
   m_Name: Botella
   m_TagString: Untagged
@@ -549,9 +551,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &5055920492366461906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,9 +567,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
   m_InteractionManager: {fileID: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 5170000000000000001}
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 9
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -693,7 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94521a19b21419b439f0e5ba9d454be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SampleItem
-  kind: 1
+  kind: 0
   capacityMl: 250
   contentVisual: {fileID: 6432711405613949419}
   contentRenderer: {fileID: 0}
@@ -702,3 +705,40 @@ MonoBehaviour:
   fillLevel01: 0
   classified: 0
   filledAt: 0
+--- !u!64 &5170000000000000001
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9208159560873884909}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1520996650023230441, guid: 91e42964d61dc2f4f9ac7e89fd5763a7, type: 3}
+--- !u!114 &5170000000000000003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970820492525402558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180a1f944a6d7c74e9451b86196a3200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BottleCap
+  bottle: {fileID: 4478063386821579067}
+  socketRadius: 0.05
+  unparentOnStart: 1

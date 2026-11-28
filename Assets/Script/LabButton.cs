@@ -22,11 +22,25 @@ public class LabButton : XRSimpleInteractable
     [Range(0, 1)] public float hapticAmplitude = 0.4f;
     public float hapticDuration = 0.08f;
 
+    [Header("Poke (pulsar con la punta del dedo)")]
+    [Tooltip("El botón se pulsa al tocarlo con el Poke Interactor de cualquier mano, sin necesitar XR Poke Filter")]
+    public bool pressByPoke = true;
+    [Tooltip("Distancia (m) entre la punta del dedo y el collider para contar como toque")]
+    public float pokeDistance = 0.012f;
+
+    /// Cualquier botón se pulsó (lo usa el audio 360)
+    public static event System.Action<LabButton> AnyPressed;
+
     float nextAllowed;
     Vector3 visualRest;
+    bool pokeInside;
+    static XRPokeInteractor[] pokers = new XRPokeInteractor[0];
+    static float nextPokerSearch;
 
     protected override void Awake()
     {
+        // Entradas vacías en la lista Colliders impiden que XRI busque los colliders solos: se limpian
+        colliders.RemoveAll(c => c == null);
         base.Awake();
         if (visual != null) visualRest = visual.localPosition;
         enabled = interactableByDefault;
@@ -35,15 +49,62 @@ public class LabButton : XRSimpleInteractable
     protected override void OnSelectEntered(SelectEnterEventArgs args)
     {
         base.OnSelectEntered(args);
-        if (Time.time < nextAllowed) return;
+        var input = args.interactorObject.transform.GetComponentInParent<XRBaseInputInteractor>();
+        DoPress(input);
+    }
+
+    void DoPress(XRBaseInputInteractor hapticTarget)
+    {
+        if (!enabled || Time.time < nextAllowed) return;
         nextAllowed = Time.time + cooldown;
 
-        var input = args.interactorObject.transform.GetComponentInParent<XRBaseInputInteractor>();
-        if (input != null) input.SendHapticImpulse(hapticAmplitude, hapticDuration);
+        if (hapticTarget != null) hapticTarget.SendHapticImpulse(hapticAmplitude, hapticDuration);
         if (clickSound != null) clickSound.Play();
         if (visual != null) StartCoroutine(Press());
 
         onPressed.Invoke();
+        AnyPressed?.Invoke(this);
+    }
+
+    /// Para conectar desde otros scripts o UnityEvents
+    public void PressFromCode() => DoPress(null);
+
+    // Poke sin filtro: se mira si la punta de algún Poke Interactor toca el collider del botón
+    void Update()
+    {
+        if (!pressByPoke) return;
+        if (Time.time >= nextPokerSearch)
+        {
+            nextPokerSearch = Time.time + 2f;
+            pokers = FindObjectsByType<XRPokeInteractor>(FindObjectsSortMode.None);
+        }
+
+        bool touching = false;
+        XRPokeInteractor who = null;
+        foreach (var p in pokers)
+        {
+            if (p == null || !p.isActiveAndEnabled) continue;
+            Vector3 tip = p.attachTransform != null ? p.attachTransform.position : p.transform.position;
+            foreach (var c in colliders)
+            {
+                if (c == null || !c.enabled) continue;
+                if ((c.ClosestPoint(tip) - tip).sqrMagnitude <= pokeDistance * pokeDistance) { touching = true; who = p; break; }
+            }
+            if (touching) break;
+        }
+
+        if (touching && !pokeInside)
+        {
+            var haptic = who != null ? who.GetComponentInParent<XRBaseInputInteractor>() : null;
+            if (haptic == null && who != null)
+            {
+                // el Poke no es un input interactor: busca el de la misma mano para vibrar
+                var hand = who.transform.parent;
+                if (hand != null) haptic = hand.GetComponentInChildren<XRBaseInputInteractor>();
+            }
+            DoPress(haptic);
+        }
+        pokeInside = touching;
     }
 
     IEnumerator Press()
